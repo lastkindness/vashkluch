@@ -1,0 +1,68 @@
+//search start
+.search {
+  position: relative;
+  &__input {
+    background-color: rgba(237, 237, 237, 0.4);
+    border: none;
+    @include anim;
+    @include fm;
+    color: $textLight;
+    &:active,
+    &:focus {
+      color: $text;
+      @include anim;
+    }
+    @include respond-to(xs-600) {
+      padding: 15px 20px 15px 45px;
+    }
+    &-container {
+      border: 1px solid $lines;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+  }
+  &__example {
+    @include fl;
+    span {
+      display: inline-block;
+    }
+    .text {
+      margin-right: 5px;
+      color: $lines;
+    }
+  }
+  .input-container {
+    margin-bottom: 0;
+  }
+  .btn {
+    width: 100px;
+    background-color: $accent;
+    color: $text;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      color: $text;
+    }
+    &:before {
+      font-weight: 500;
+      color: $elements;
+      @include anim;
+      margin: 0;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparentize($accent, 0.7);
+      @include anim;
+      &:before {
+        transform: scale(1.1);
+        @include anim;
+      }
+    }
+  }
+}
+//search end

@@ -1,0 +1,176 @@
+//buttons start
+.btn{
+  display: inline-flex;
+  transform-style: preserve-3d;
+  background: $elements;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 16px;
+  @include fm;
+  color: $white;
+  background-color: $elements;
+  text-transform: none;
+  border: unset;
+  padding: 7px 15px;
+  text-decoration: none;
+  @include anim;
+  @include respond-to(sm) {
+    padding: 15px 20px;
+  }
+  &:hover,
+  &:focus {
+    outline: none;
+    cursor: pointer;
+    @include anim;
+    color: $white;
+    background-color: $darkElements;
+  }
+  span{
+    position: relative;
+    text-decoration: unset;
+    z-index: 1;
+    color: $white;
+    @include anim;
+  }
+  &-transparent {
+    color: $elements;
+    background-color: transparent;
+    span{
+      color: $elements;
+    }
+    &:hover {
+      @include anim;
+      border: 1px solid $action;
+      color: $white;
+      span{
+        color: $white;
+        @include anim;
+      }
+    }
+    &:active,
+    &:focus,
+    &.active{
+      @include anim;
+      color: $white;
+      background-color: $elements;
+      span{
+        color: $white;
+      }
+    }
+  }
+  &-small {
+    padding: 7px 10px;
+  }
+  &-atten {
+    color: $attention;
+    background-color: transparent;
+    span{
+      color: $attention;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      @include anim;
+      color: $white;
+      background-color: $attention;
+      span{
+        color: $white;
+      }
+    }
+  }
+  &.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      order: 1;
+    }
+    &:before {
+      order: 0;
+      z-index: 5;
+      position: relative;
+      margin-right: 5px;
+      font-size: 20px;
+    }
+  }
+  &-link {
+    padding: 0;
+    background-color: transparent;
+    font-size: 16px;
+    text-transform: none;
+    text-decoration: underline;
+    display: inline-block;
+    width: auto !important;
+    @include fr;
+    @include anim;
+    color: $elements;
+    span {
+      color: $elements;
+      @include anim;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      span {
+        color: $action;
+        @include anim;
+      }
+      color: $action;
+      background-color: transparent;
+      @include anim;
+    }
+    &.disabled {
+      background-color: transparent !important;
+      color: $text;
+    }
+  }
+  &-reset {
+    padding: 0;
+    background-color: transparent;
+    text-transform: none;
+    text-decoration: none;
+    color: $elements;
+    span {
+      color: $elements;
+      @include anim;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      span {
+        color: $action;
+        @include anim;
+      }
+      color: $action;
+      background-color: transparent;
+      @include anim;
+    }
+  }
+  &-missing {
+    background-color: $lines;
+  }
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.6;
+    background-color: $text;
+    &:hover,
+    &:active,
+    &:focus {
+      span {
+        color: $action;
+        @include anim;
+      }
+      color: $action;
+      background-color: transparent;
+      @include anim;
+    }
+  }
+  @include respond-to(xs-600) {
+    font-size: 12px;
+  }
+}
+//buttons end

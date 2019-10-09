@@ -1,0 +1,34 @@
+.main-about {
+  a,
+  strong,
+  i {
+    margin: 0 5px;
+    @include fm;
+    display: inline;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  p {
+    margin: 0;
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+  a {
+    @include fl;
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &-img {
+      width: calc(50% - 45px);
+      img {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    &-text {
+      width: 50%;
+    }
+  }
+}

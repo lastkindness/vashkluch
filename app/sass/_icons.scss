@@ -1,0 +1,130 @@
+$icon_font_name:"Icons";
+@font-face {
+	font-family:$icon_font_name;
+	src: url('fonts/Icons.eot');
+	src: url('fonts/Icons.eot?#iefix') format('eot'),
+	url('fonts/Icons.woff') format('woff'),
+	url('fonts/Icons.ttf') format('truetype'),
+	url('fonts/Icons.svg#Icons') format('svg');
+}
+%icon-arr,
+%icon-arr1,
+%icon-arr2,
+%icon-car,
+%icon-cart,
+%icon-check,
+%icon-close,
+%icon-fb,
+%icon-gift,
+%icon-google-plus,
+%icon-insta,
+%icon-link,
+%icon-mail,
+%icon-map,
+%icon-phone,
+%icon-pint,
+%icon-search,
+%icon-tweet,
+%icon-user,
+%icon-vk,
+%last_selector {
+		&:before {
+			font-family:$icon_font_name;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+			font-style: normal;
+			font-variant: normal;
+			font-weight: normal;
+			// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+			text-decoration: none;
+			text-transform: none;
+		}
+	}
+
+%icons_before_after {
+	&:before,
+	&:after {
+		font-family: $icon_font_name;
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
+
+%icons_after {
+	&:after {
+		font-family: $icon_font_name;
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
+
+%icon-arr:before {
+	content:'\E001';
+}
+%icon-arr1:before {
+	content:'\E002';
+}
+%icon-arr2:before {
+	content:'\E003';
+}
+%icon-car:before {
+	content:'\E004';
+}
+%icon-cart:before {
+	content:'\E005';
+}
+%icon-check:before {
+	content:'\E006';
+}
+%icon-close:before {
+	content:'\E007';
+}
+%icon-fb:before {
+	content:'\E008';
+}
+%icon-gift:before {
+	content:'\E009';
+}
+%icon-google-plus:before {
+	content:'\E00A';
+}
+%icon-insta:before {
+	content:'\E00B';
+}
+%icon-link:before {
+	content:'\E00C';
+}
+%icon-mail:before {
+	content:'\E00D';
+}
+%icon-map:before {
+	content:'\E00E';
+}
+%icon-phone:before {
+	content:'\E00F';
+}
+%icon-pint:before {
+	content:'\E010';
+}
+%icon-search:before {
+	content:'\E011';
+}
+%icon-tweet:before {
+	content:'\E012';
+}
+%icon-user:before {
+	content:'\E013';
+}
+%icon-vk:before {
+	content:'\E014';
+}

@@ -1,0 +1,69 @@
+//breadcrumbs start
+.breadcrumbs {
+  width: auto;
+  ul,
+  ol {
+    list-style: none;
+    margin: 0;
+    li {
+      margin: 0;
+      padding: 0;
+      &:before {
+        position: static;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+      }
+    }
+  }
+  &__wrapper {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    padding: 0 0 25px;
+    @include respond-to(sm-767) {
+      flex-wrap: wrap;
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .icon-home {
+      font-size: 25px;
+    }
+    &:before {
+      font-size: 5px;
+      content: '\E001';
+      font-family: "Icons";
+      transform: rotate(-90deg);
+      margin: 0 15px;
+      color: $textLight;
+    }
+    &:hover,
+    &:active,
+    &:focus,
+    &.active{
+      .breadcrumbs__link {
+        color: $action;
+        @include anim;
+      }
+    }
+    &:first-child {
+      &:before {
+        display: none;
+      }
+    }
+  }
+  &__link {
+    @include anim;
+    position: relative;
+    text-decoration: none;
+    @include fl;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    color: $textLight;
+  }
+}
+//breadcrumbs end

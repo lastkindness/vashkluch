@@ -1,0 +1,103 @@
+.service-one {
+  &-page {
+    .main {
+      &-services {
+        .main-page__title {
+          display: none;
+        }
+      }
+    }
+    section {
+      margin-bottom: 40px;
+    }
+  }
+  &__main {
+    margin: 45px 0;
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__advantages {
+    width: calc(65% - 30px);
+    margin: 0;
+    padding: 0;
+    padding-right: 10%;
+    &-item {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      &:before {
+        display: none;
+      }
+      .icon {
+        width: 60px !important;
+        margin-right: 20px;
+        max-width: unset;
+      }
+      .title {
+        @include fm;
+        font-size: 25px;
+        line-height: 29px;
+        color: $elements;
+      }
+    }
+  }
+  &__prices {
+    width: calc(35%);
+  }
+  &__phone {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    background-color: transparentize($action, 0.9);
+    .header__phone {
+      padding: 10px;
+      flex-grow: 1;
+      justify-content: space-between;
+      &-link {
+        font-size: 24px;
+        line-height: 28px;
+        .icon {
+          font-size: 27px;
+        }
+      }
+    }
+    .btn {
+      flex-grow: 0;
+      font-size: 20px;
+      line-height: 23px;
+      @include fm;
+    }
+  }
+  &__slider {
+    width: 100%;
+    &-wrapper {
+      .slick-list {
+        margin: 0 -10px;
+      }
+      .slick-track {
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+      }
+    }
+    &-item {
+      margin: 0 10px;
+      height: auto;
+      overflow: hidden;
+      a {
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          height: 100%;
+          max-width: unset;
+        }
+      }
+    }
+  }
+}
+

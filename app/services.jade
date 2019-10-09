@@ -1,0 +1,27 @@
+doctype html
+html
+  include components/_head
+  body
+    noscript
+      div
+        strong Для полной функциональности этого сайта необходимо включить JavaScript. Вот
+        a(href='https://support.google.com/adsense/answer/12654?hl=ru', target='_blank') инструкции,
+        | как включить JavaScript в вашем браузере.
+        link(rel='stylesheet', type='text/css', href='css/without-js.css')
+    .wrapper.services-page
+      include components/_header
+      .container
+        main.main
+          include components/_text-content
+          section.page__header
+            .page__header-wrapper
+              include components/_breadcrumbs
+              +breadcrumbs('Главная', 'Наши услуги')
+            .title.page__header-title
+              | Наши услуги
+          section.services__main
+            include templates/main/_services
+
+      include components/_footer
+      include components/_popup
+    include components/_footer-include

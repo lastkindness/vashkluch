@@ -1,0 +1,15 @@
+.main {
+  &-banner {
+    &__img {
+      height: 300px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+}

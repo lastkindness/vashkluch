@@ -1,0 +1,39 @@
+.cart {
+  &__slider {
+    width: 100%;
+    .slick-list {
+      margin: 0 -5px;
+      width: 100%;
+    }
+    .slick-next {
+      right: 8px;
+    }
+    &-grid {
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+      margin: 0 -5px 25px;
+      width: 65%;
+      &.slick-slider {
+        .product-item {
+          height: 100%;
+        }
+        .slick-track {
+          height: 100%;
+        }
+      }
+    }
+    &-title {
+      @include fm;
+      font-size: 12px;
+      line-height: 14px;
+      color: $text;
+    }
+    .product-item {
+      margin: 0 5px 0 5px;
+      &__title {
+        align-items: center;
+      }
+    }
+  }
+}

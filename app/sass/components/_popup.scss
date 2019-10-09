@@ -1,0 +1,171 @@
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all .5s;
+  display: none;
+  z-index: 101;
+  width: 400px;
+  height: auto;
+  background-color: $white;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: left;
+  padding: 20px;
+  border-top: 6px solid $elements;
+  @include respond-to(tablet-1030){
+    width: 50%;
+  }
+  @include respond-to(md){
+    width: 60%;
+  }
+  @include respond-to(xs-600){
+    width: 90%;
+  }
+  &-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($text, .85);
+    transition: all .5s;
+    display: none;
+    z-index: 100;
+  }
+  &-header {
+    @include fb;
+    .subtitle {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  }
+  &-content {
+    .basket-item {
+      border: unset;
+      border-top: 1px solid $lines;
+      @include anim;
+      &:hover,
+      &:active,
+      &:focus {
+        border: unset;
+        border-top: 1px solid transparent;
+        @include anim;
+      }
+      @include respond-to(tablet-1030){
+        max-width: 100%;
+      }
+    }
+    p,
+    .content {
+      font-size: 16px;
+      line-height: 21px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      @include respond-to(sm){
+        font-size: 14px;
+        line-height: 16px;
+      }
+    }
+  }
+  &__call {
+    &-mobile {
+      padding: 0;
+      .popup-header,
+      .popup-body {
+        padding: 30px;
+      }
+      .popup-header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        a {
+          font-size: 18px;
+          line-height: 21px;
+          color: $text;
+          margin-bottom: 20px;
+          text-decoration: unset;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+      .popup-body {
+        background-color: $grayBG;
+        border-top: 1px solid $lines;
+      }
+      .input-container {
+        margin-bottom: 25px;
+      }
+    }
+  }
+  &-buttons {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 15px;
+  }
+  .btn {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    &-link {
+      margin-left: 5px;
+    }
+  }
+  .input-container {
+    //margin-bottom: 15px;
+  }
+  .close-btn {
+    width: 30px;
+    height: 30px;
+    right: -15px;
+    left: unset;
+    margin: 0;
+    top: -15px;
+    position: absolute;
+    background-color: $elements;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    @include anim;
+    &:hover,
+    &:active,
+    &:focus {
+      cursor: pointer;
+      @include anim;
+      background-color: $action;
+    }
+  }
+  &__cart-in {
+    padding: 0;
+    .basket-sidebar {
+      .btn-basket-edit {
+        display: none;
+      }
+    }
+  }
+  &__product-delete {
+    z-index: 105;
+  }
+  &__message {
+    .subtitle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .js_message_append {
+    text-align: center;
+  }
+}

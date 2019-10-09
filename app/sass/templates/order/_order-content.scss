@@ -1,0 +1,270 @@
+//order-content start
+.order_content {
+  width: auto;
+  flex-grow: 1;
+  border: 1px solid $lines;
+  margin-right: 30px;
+  margin-bottom: 0;
+  padding: 30px;
+  @include respond-to(md) {
+    width: 100%;
+    margin-right: 0;
+  }
+  @include respond-to(xs-600) {
+    padding: 10px 15px;
+  }
+  &__form {
+    padding: 30px 50px;
+    @include respond-to(xs-600) {
+      padding: 0;
+    }
+    form {
+      @include respond-to(xs-600) {
+        margin-bottom: 30px;
+      }
+    }
+    .contacts {
+      .btn_send {
+        display: inline;
+        width: auto;
+      }
+    }
+    .dropdown {
+      &_select {
+        width: 100%;
+        line-height: 120%;
+        font-size: 12px;
+        color: $text;
+        @include fm;
+        .icon {
+          &:before {
+            font-size: 6px;
+            right: 15px;
+          }
+        }
+      }
+      &__wrapper {
+        border-radius: unset;
+        justify-content: flex-start;
+        min-height: 38px;
+        padding: 0;
+        width: 100%;
+        align-items: stretch;
+        //border: none;
+        & > span {
+          display: none;
+        }
+        .select2,
+        .select2-container {
+          margin-right: 0;
+          color: $text;
+          width: 100%;
+          display: block;
+          padding-right: 5px;
+          border: 1px solid $elements;
+          overflow: hidden;
+          @include respond-to(xs-600) {
+            padding-right: 40px;
+          }
+          .select2-selection__arrow {
+            height: 100%;
+          }
+        }
+      }
+    }
+    .delivery {
+      &-adress {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .title,
+        .city {
+          font-size: 16px;
+          line-height: 18px;
+          @include fm;
+          margin: 10px 0;
+        }
+        .title {
+          margin-right: 5px;
+        }
+      }
+      .card-info__sidebar-item {
+        .select2-container--default {
+          .select2-selection--single {
+            .select2-selection__rendered {
+              font-size: 16px;
+              line-height: 18px;
+              @include fr;
+              @include respond-to(xs-600) {
+                font-size: 13px;
+                line-height: 15px;
+              }
+            }
+          }
+        }
+        .dropdown_select {
+          width: auto;
+          @include respond-to(xs-600) {
+            width: 100%;
+          }
+          .dropdown__wrapper {
+            @include respond-to(xs-600) {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    .select2-container--default {
+      .select2-selection--single {
+        background-color: transparent;
+        outline: transparent;
+        border: none;
+        height: 100%;
+        border-radius: unset;
+        .select2-selection__rendered {
+          color: $text;
+          font-size: 12px;
+          line-height: 14px;
+          height: 100%;
+          @include fr;
+          outline: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+        }
+        .select2-selection__arrow {
+          b {
+            border-color: $text transparent transparent;
+            @include anim;
+          }
+        }
+      }
+      &.select2-container--open {
+        &.select2-container--below {
+          .select2-selection--single,
+          .select2-selection--multiple {
+            outline: transparentize($elements, 1);
+          }
+        }
+        .select2-selection--single {
+          .select2-selection__arrow {
+            b {
+              border-color: transparent transparent $text;
+              @include anim;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__title {
+    margin-right: 5px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    @include anim;
+    @include respond-to(xs-600) {
+      flex-wrap: wrap;
+      margin-right: 0px;
+      margin-bottom: 10px;
+    }
+    .value {
+      margin-right: 5px;
+      display: inline-flex;
+      font-size: 14px;
+      strong {
+        font-size: 25px;
+        color: $elements;
+      }
+    }
+    &.disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+    &.active {
+      color: $accent;
+      .subtitle {
+        @include anim;
+        color: $accent;
+        position: relative;
+        padding-right: 25px;
+        margin-right: 30px;
+        &:after {
+          display: block;
+          font-family:$icon_font_name;
+          content:'\E005';
+          color: $accent;
+          position: absolute;
+          right: 0;
+          top: calc(50%);
+          transform: translateY(-50%);
+          @include anim;
+        }
+      }
+      strong {
+        @include anim;
+        color: $accent;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        @include anim;
+        color: darken($accent, 20%);
+        .subtitle {
+          @include anim;
+          color: darken($accent, 20%);
+        }
+        strong {
+          @include anim;
+          color: darken($accent, 20%);
+        }
+      }
+    }
+    .btn-link {
+      font-size: 12px;
+      @include respond-to(xs-600) {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+  &__wrapper {
+    overflow: hidden;
+    .form-group-radio {
+      margin-bottom: 30px;
+    }
+  }
+  &__delivery {
+   &-item {
+     @include fm;
+     font-size: 14px;
+     line-height: 16px;
+     .btn {
+       margin-left: 10px;
+     }
+   }
+  }
+  a {
+    &.order_content__title {
+      &:hover,
+      &:active,
+      &:focus {
+        .subtitle {
+          @include anim;
+          color: $elements;
+        }
+      }
+    }
+  }
+  .card-info__sidebar-item {
+    p,
+    span,
+    .title {
+      font-size: 16px;
+    }
+  }
+}
+//order-content end

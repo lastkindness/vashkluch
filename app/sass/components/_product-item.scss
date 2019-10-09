@@ -1,0 +1,507 @@
+//product-item start
+.product-item {
+  margin-bottom: 20px;
+  position: relative;
+  //box-shadow: $box-shadow-none;
+  @include anim;
+  &:hover,
+  &:active,
+  &:focus {
+    @include anim;
+    .product-item__additional {
+      //animation: downRight 1s linear;
+    }
+  }
+  &__additional {
+    top: 0;
+    z-index: 2;
+    width: calc(100% + 20px);
+    height: 100%;
+    overflow-y: auto;
+    position: absolute;
+    right: calc(-100% - 20px);
+    background-color: $white;
+    opacity: 1;
+    border: 1px solid $grayBG;
+    .basket-item {
+      margin: 0;
+    }
+    &-wrapper {
+      padding: 0 15px;
+    }
+    &-title {
+      padding: 5px 35px;
+      font-size: 14px;
+      line-height: 16px;
+      text-align: center;
+      @include fr;
+      color: $textLight;
+      background-color: transparentize($action, 0.9);
+      margin-bottom: 20px;
+    }
+  }
+  &.additional {
+    .product-item {
+      &__additional {
+        z-index: 0;
+        opacity: 0;
+        right: 0;
+        @include anim;
+      }
+    }
+  }
+  &.additional {
+    &-left {
+      .product-item {
+        &__additional {
+          z-index: 2;
+          opacity: 1;
+          right: unset;
+          left: calc(-100% - 20px);
+          @include anim;
+        }
+      }
+      &.additional {
+        .product-item {
+          &__additional {
+            right: unset;
+            left: 0;
+            z-index: 0;
+            opacity: 0;
+            @include anim;
+          }
+        }
+      }
+    }
+  }
+  &_delete {
+    .product-item__delete {
+      display: block;
+    }
+  }
+  &_stock {
+    .product-item__stock {
+      display: flex;
+      opacity: 1;
+    }
+    .product-item__main {
+    }
+  }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    text-decoration: none;
+    position: relative;
+    background-color: $white;
+    z-index: 1;
+    border: 1px solid $grayBG;
+    color: $text;
+    height: 100%;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $text;
+    }
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    cursor: pointer;
+  }
+  &__img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    padding: 40px 20px 20px;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid $grayBG;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  &__vendor {
+    color: $elements;
+    width: 100%;
+    height: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+      color: $elements;
+      @include fm;
+      font-size: 15px;
+      line-height: 18px;
+      letter-spacing: -0.01em;
+      display: inline-block;
+      width: auto;
+      margin: 0;
+      text-align: center;
+    }
+    .vendor {
+      margin: 0 5px;
+    }
+  }
+  &__stock {
+    //display: none;
+    opacity: 0;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    text-transform: lowercase;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: $text;
+    width: 100%;
+    @include fr;
+    height: 40px;
+    .discount {
+      color: $attention;
+      margin: 0 3px;
+      @include fm;
+    }
+    .value {
+      color: $elements;
+      margin: 0 3px;
+      @include fm;
+    }
+    &-item {
+      width: auto;
+      @include fm;
+      &-saving {
+        @include fr;
+        width: 100%;
+        margin-bottom: 5px;
+        span,
+        .value {
+          color: $attention;
+        }
+      }
+    }
+  }
+  &__title {
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 5px 0 !important;
+    @include fm;
+    font-size: 20px;
+    line-height: 21px;
+    color: $text;
+    text-transform: uppercase;
+    @include respond-to(xs-690) {
+      height: auto;
+    }
+  }
+  &__main,
+  &__info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 10px;
+  }
+  &__main {
+    flex-grow: 1;
+  }
+  &__price {
+    width: 100%;
+    font-size: 25px;
+    line-height: 29px;
+    text-align: center;
+    margin: 5px auto 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    @include fb;
+    color: $text;
+    &_old {
+      opacity: 0;
+      text-decoration: line-through;
+      font-size: 15px;
+      line-height: 19px;
+      height: 20px;
+      .title,
+      .price,
+      .currency {
+        font-size: 15px;
+        line-height: 19px;
+        margin: 0;
+        @include fr;
+        color: $lines;
+      }
+    }
+    .price,
+    .value {
+      margin: 0 5px !important;
+    }
+  }
+  &__tabs {
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    &-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      //margin-bottom: 20px;
+    }
+    &-button {
+      position: relative;
+      .btn {
+        padding: 7px;
+        font-size: 12px;
+      }
+      &::after {
+        display: block;
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-top: 1px solid $elements;
+        border-left: 1px solid $elements;
+        position: absolute;
+        left: 50%;
+        bottom: -38px;
+        transform: rotate(45deg) translateX(-50%);
+        z-index: 10;
+        background-color: $white;
+        opacity: 0;
+        @include anim;
+      }
+      &_red {
+        &::after {
+          border-top: 1px solid $attention;
+          border-left: 1px solid $attention;
+        }
+      }
+      &.active {
+        &::after {
+          opacity: 1;
+          @include anim;
+        }
+      }
+    }
+    &-content {
+      width: 100%;
+      position: relative;
+      .content-block {
+        text-align: center;
+        border: 1px solid $elements;
+        padding: 10px 15px;
+        position: absolute;
+        width: 100%;
+        background-color: $white;
+        opacity: 0;
+        z-index: 5;
+        font-size: 12px;
+        line-height: 14px;
+        height: auto;
+        @include anim;
+        &_red {
+          border: 1px solid $attention;
+        }
+        &.active {
+          opacity: 1;
+          @include anim;
+        }
+      }
+    }
+    &.active {
+      &+.product-item__content {
+        opacity: 0;
+        @include anim;
+      }
+    }
+  }
+  &__content {
+    opacity: 1;
+    font-size: 12px;
+    line-height: 14px;
+    min-height: 45px;
+    @include anim;
+    //margin-bottom: 20px;
+    text-align: center;
+    @include respond-to(xs-690) {
+      min-height: unset;
+    }
+  }
+  &__buttons {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    //border: 1px solid $elements;
+    .input-number,
+    .btn {
+      width: 50%;
+    }
+  }
+  &_old {
+    .product-item__price {
+      color: $attention;
+      &_old {
+        color: $lines;
+        display: flex;
+        opacity: 1;
+      }
+    }
+  }
+  &__delete {
+    display: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: $text;
+    font-size: 25px;
+    @include anim;
+    &:hover,
+    &:active,
+    &:focus {
+      color: $attention;
+      @include anim;
+    }
+  }
+  &__missing {
+    &-buttons {
+      width: 100%;
+      text-align: center;
+      display: none;
+    }
+    &-title {
+      height: 15px;
+      margin: 5px 0;
+      width: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      .subtitle {
+        margin: 0 auto;
+        color: $lines;
+        font-size: 15px;
+        line-height: 19px;
+        text-align: center;
+        @include fr;
+        position: relative;
+      }
+      &_true {
+        display: flex;
+        div,
+        span {
+          color: $select !important;
+          width: auto;
+          display: inline;
+        }
+        .icon-check {
+          position: absolute;
+          left: -20px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+    &-buttons {
+      .btn {
+        width: 100%;
+        margin-top: 5px;
+      }
+    }
+  }
+  &_missing {
+    .product-item__missing-buttons,
+    .product-item__missing-title {
+      display: block;
+    }
+    .product-item__buttons,
+    .product-item__info,
+    .product-item__missing-title_true {
+      display: none;
+    }
+  }
+  &_small {
+    .product-item__buttons,
+    .product-item__missing-buttons,
+    .product-item__stock-item-saving,
+    .product-item__additional {
+      display: none;
+    }
+    .product-item__img {
+      height: 150px;
+      padding: 10px;
+    }
+  }
+  &__gift {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: none;
+    .icon {
+      font-size: 25px;
+      color: $attention;
+    }
+  }
+  &_gift {
+    .product-item__gift {
+      display: block;
+    }
+    .product-item__buttons,
+    .product-item__missing-buttons,
+    .product-item__stock-item-saving,
+    .product-item__additional,
+    .product-item__vendor,
+    .product-item__missing-title,
+    .product-item__price,
+    .product-item__stock,
+    .product-item__label {
+      display: none;
+    }
+    .product-item__img {
+      height: 130px;
+      padding: 10px;
+      border: unset;
+    }
+    .product-item__title {
+      height: auto;
+      color: $white;
+      @include fm;
+      font-size: 12px;
+      line-height: 14px;
+      margin: 0 !important;
+    }
+    .product-item__main {
+      background-color: $elements;
+      @include anim;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      .product-item__main {
+        background-color: $action;
+        @include anim;
+      }
+    }
+  }
+  .product-item__main {
+    @include respond-to(tablet-1030) {
+      height: 200px;
+    }
+    @include respond-to(xs-690) {
+      height: auto;
+    }
+  }
+  .btn {
+    padding: 15px;
+  }
+  .input-number {
+    height: 100%;
+  }
+}
+//product-item end

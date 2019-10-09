@@ -1,0 +1,184 @@
+include _button
+include _input-number
+include _basket-item
+
+mixin product-item(img, itemTitle, price, priceOld, classItem, vendor, label, classLabel, btnClass)
+    .product-item(class=classItem[i])
+        a.product-item__wrapper(href="http://html.myapp.com.ua/vashkluch/card.html")
+            .product-item__delete.basket-item__remove(data-target="product-delete")
+                .icon.icon-delete
+            .product-item__img
+                - if(label[i]!=""&&label[i]!=undefined)
+                    .product-item__label.label-status(class=classLabel[i])= label[i]
+                .product-item__gift
+                    .icon.icon-gift
+                img(src="images/keys/"+img[i] alt= itemTitle[i] title= itemTitle[i])
+            .product-item__main
+                h2.product-item__title.subtitle= itemTitle[i]
+                .product-item__vendor
+                    span.title Артикул
+                    span.vendor= vendor[i]
+                .product-item__missing-title
+                    .subtitle Нет в наличии
+                .product-item__missing-title.product-item__missing-title_true
+                    .subtitle
+                        .icon.icon-check
+                        | товар в наличии
+                .product-item__price.product-item__price_old
+                    span.title Старая цена
+                    span.price= priceOld[i]
+                    span.currency грн.
+                .product-item__price
+                    span.price= price[i]
+                    span.currency грн.
+                .product-item__stock
+                    .product-item__stock-item-saving
+                        span Экономия
+                        span.value 15
+                        span грн.
+                    .product-item__stock-item
+                        span от
+                        span.value 100
+                        span шт.
+                        span -
+                        span.discount 1,78
+                        span грн.
+                    .product-item__stock-item
+                        span Скидка
+                        span.discount -13%
+            .product-item__buttons
+                +input-number
+                +button('В корзину', 'button')(class="icon icon-cart")(data-target="cart")
+            .product-item__missing-buttons
+                +button('Сообщить когда появится', 'button')(class="btn-missing" data-target="missing")
+        .product-item__additional
+            .product-item__additional-title Аналоги от других производителей
+            .product-item__additional-wrapper
+                a.basket-item.basket-item_short.basket-item_short-card(href="http://html.myapp.com.ua/vashkluch/card.html")
+                    .basket-item__wrapper
+                        .basket-item__img
+                            img.image(src="images/keys/key1.jpeg" alt="PK RENAULT NE72 2кн" title="PK RENAULT NE72 2кн")
+                        .basket-item__info
+                            .basket-item__vendor-code
+                                span.title Артикул:
+                                span.value 45881257
+                            .basket-item__name
+                                h3.subtitle PK RENAULT NE72 2кн
+                            .basket-item__category
+                                span.value Автоключи
+                        .basket-item__price
+                            span.value 142 402
+                            span.currency грн
+                        .basket-item__old-price
+                            span.value
+                            span.currency грн
+                        .basket-item__quantity
+                            +input-number
+                        .basket-item__all
+                            span.value 142 402
+                            span.currency грн
+                        .basket-item__remove(data-target="product-delete")
+                            .icon.icon-close
+                a.basket-item.basket-item_short.basket-item_short-card.basket-item_old-price(href="http://html.myapp.com.ua/vashkluch/card.html")
+                    .basket-item__wrapper
+                        .basket-item__img
+                            img.image(src="images/keys/key2.jpeg" alt="CLA3G JMA" title="CLA3G JMA")
+                        .basket-item__info
+                            .basket-item__vendor-code
+                                span.title Артикул:
+                                span.value 45881257
+                            .basket-item__name
+                                h3.subtitle CLA3G JMA
+                            .basket-item__category
+                                span.value Автозамки
+                        .basket-item__price
+                            span.value 29 755
+                            span.currency грн
+                        .basket-item__old-price
+                            span.value 31 785
+                            span.currency грн
+                        .basket-item__quantity
+                            +input-number
+                        .basket-item__all
+                            span.value 29 755
+                            span.currency грн
+                        .basket-item__remove(data-target="product-delete")
+                            .icon.icon-close
+                a.basket-item.basket-item_short.basket-item_short-card(href="http://html.myapp.com.ua/vashkluch/card.html")
+                    .basket-item__wrapper
+                        .basket-item__img
+                            img.image(src="images/keys/key3.jpeg" alt="PK MERCEDES BENZ 3КН ЧЕРНЫЙ ДО 1998Г С МЕХАНИЧЕСКИЙ КЛЮЧОМ" title="PK MERCEDES BENZ 3КН ЧЕРНЫЙ ДО 1998Г С МЕХАНИЧЕСКИЙ КЛЮЧОМ")
+                        .basket-item__info
+                            .basket-item__vendor-code
+                                span.title Артикул:
+                                span.value 7x757
+                            .basket-item__name
+                                h3.subtitle PK MERCEDES BENZ 3КН ЧЕРНЫЙ ДО 1998Г С МЕХАНИЧЕСКИЙ КЛЮЧОМ
+                            .basket-item__category
+                                span.value Оборудование для изгот ключей
+                        .basket-item__price
+                            span.value 45 794
+                            span.currency грн
+                        .basket-item__old-price
+                            span.value
+                            span.currency грн
+                        .basket-item__quantity
+                            +input-number
+                        .basket-item__all
+                            span.value 45 794
+                            span.currency грн
+                        .basket-item__remove(data-target="product-delete")
+                            .icon.icon-close
+                a.basket-item.basket-item_short.basket-item_short-card(href="http://html.myapp.com.ua/vashkluch/card.html")
+                    .basket-item__wrapper
+                        .basket-item__img
+                            img.image(src="images/keys/key1.jpeg" alt="PK RENAULT NE72 2кн" title="PK RENAULT NE72 2кн")
+                        .basket-item__info
+                            .basket-item__vendor-code
+                                span.title Артикул:
+                                span.value 45881257
+                            .basket-item__name
+                                h3.subtitle PK RENAULT NE72 2кн
+                            .basket-item__category
+                                span.value Автоключи
+                        .basket-item__price
+                            span.value 142 402
+                            span.currency грн
+                        .basket-item__old-price
+                            span.value
+                            span.currency грн
+                        .basket-item__quantity
+                            +input-number
+                        .basket-item__all
+                            span.value 142 402
+                            span.currency грн
+                        .basket-item__remove(data-target="product-delete")
+                            .icon.icon-close
+                a.basket-item.basket-item_short.basket-item_short-card.basket-item_old-price(href="http://html.myapp.com.ua/vashkluch/card.html")
+                    .basket-item__wrapper
+                        .basket-item__img
+                            img.image(src="images/keys/key2.jpeg" alt="CLA3G JMA" title="CLA3G JMA")
+                        .basket-item__info
+                            .basket-item__vendor-code
+                                span.title Артикул:
+                                span.value 45881257
+                            .basket-item__name
+                                h3.subtitle CLA3G JMA
+                            .basket-item__category
+                                span.value Автозамки
+                        .basket-item__price
+                            span.value 29 755
+                            span.currency грн
+                        .basket-item__old-price
+                            span.value 31 785
+                            span.currency грн
+                        .basket-item__quantity
+                            +input-number
+                        .basket-item__all
+                            span.value 29 755
+                            span.currency грн
+                        .basket-item__remove(data-target="product-delete")
+                            .icon.icon-close
+
+
+

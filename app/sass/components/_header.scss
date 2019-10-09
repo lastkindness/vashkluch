@@ -1,0 +1,401 @@
+//header start
+.header {
+  li {
+    margin: 0;
+    &:before {
+      display: none;
+    }
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__burger {
+    display: none;
+  }
+  &__user {
+    .icon {
+      font-size: 25px;
+      line-height: 25px;
+      color: $elements;
+    }
+  }
+  &__cart {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    text-decoration: none;
+    .icon {
+      font-size: 25px;
+      line-height: 25px;
+      color: $elements;
+    }
+    .text {
+      color: $white;
+      display: none;
+      @include respond-to(tablet-1030){
+        display: block;
+      }
+    }
+    .value {
+      width: 17px;
+      height: 17px;
+      background-color: $elements;
+      color: $white;
+      font-size: 14px;
+      position: absolute;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 0px;
+      left: -5px;
+    }
+    &:hover,
+    &:active,
+    &:focus,
+    &.active {
+      color: $action;
+      @include anim;
+      .icon {
+        color: $action;
+      }
+    }
+    &.disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+      color: $text;
+      @include anim;
+      .value {
+        display: none;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        @include anim;
+        color: $text;
+      }
+    }
+  }
+  &__currency,
+  &__lang {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    a,
+    span,
+    .icon,
+    li {
+      color: $elements;
+      font-size: 14px;
+      line-height: 16px;
+      @include anim;
+      &:hover,
+      &:active,
+      &:focus,
+      &.active {
+        color: $action;
+        @include anim;
+        .icon {
+          color: $action;
+          @include anim;
+        }
+      }
+    }
+  }
+  &__info {
+    padding: 20px 0;
+  }
+  &__logo {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  &__social {
+    width: 7%;
+    .social {
+      &-item {
+        background-color: transparent;
+        .icon {
+          color: $elements;
+        }
+        &:hover,
+        &:active,
+        &:focus {
+          .icon {
+            color: $action;
+            @include anim;
+          }
+        }
+      }
+    }
+  }
+  &__phone {
+    display: flex;
+    //flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &-subtitle {
+      color: $textLight;
+      @include fb;
+      font-size: 13px;
+      line-height: 15px;
+    }
+    &-link {
+      font-size: 14px;
+      line-height: 16px;
+      color: $textLight;
+      margin-right: 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      @include fm;
+      span {
+        margin-left: 5px;
+        @include fb;
+        color: $text;
+      }
+      .icon {
+        color: $lines;
+        margin-right: 5px;
+        font-size: 17px;
+      }
+    }
+  }
+  &__search {
+    width: 65%;
+  }
+  &__menu {
+    background-color: $elements;
+    .brands {
+      position: absolute;
+      z-index: -10;
+      width: 100%;
+      opacity: 0;
+      height: auto;
+      top: 100%;
+      left: 0;
+      @include anim;
+    }
+    &-wrapper {
+      //position: relative;
+    }
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-auto-rows: minmax(50px, auto);
+      align-items: stretch;
+      justify-content: space-between;
+      text-align: center;
+      position: relative;
+      &-sub {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+        @include anim;
+        width: 350px;
+        top: 50px;
+        left: 0;
+        background-color: $grayBG3;
+        //padding: 5px 0 !important;
+        padding: 0 !important;
+      }
+    }
+    &-link {
+      color: $white;
+      @include fm;
+      font-size: 18px;
+      line-height: 21px;
+      &:hover,
+      &:active,
+      &:focus {
+        @include anim;
+        color: $white;
+      }
+    }
+    &-item {
+      padding: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include anim;
+      background-color: transparent;
+      &-sub {
+        //padding: 5px 10px;
+        padding: 10px;
+        //margin: 5px 0 !important;
+        text-align: left;
+        @include anim;
+        background-color: transparent;
+        justify-content: flex-start;
+        position: relative;
+        &-link {
+          @include anim;
+          color: $text;
+        }
+        &>.header__menu-list-sub {
+          left: 100%;
+          top: 0;
+        }
+        &.drop {
+          align-items: center;
+          justify-content: space-between;
+          display: flex;
+          &:after {
+            display: inline-block;
+            content: '\E001';
+            font-family: "Icons";
+            color: $text;
+            transform: rotate(-90deg) translateY(0);
+            font-size: 8px;
+            @include anim;
+          }
+        }
+        &:hover,
+        &:active,
+        &:focus {
+          @include anim;
+          background-color: $darkElements;
+          &>.header__menu-item-sub-link {
+            color: $white;
+            @include anim;
+          }
+          &>.header__menu-list-sub {
+            z-index: 15;
+            opacity: 1;
+            @include anim;
+          }
+          &:after {
+            color: $white;
+            @include anim;
+            transform: rotate(-90deg) translateY(5px);
+          }
+        }
+      }
+      &-main {
+        position: relative;
+        &:hover,
+        &:active,
+        &:focus {
+          @include anim;
+          background-color: $darkElements;
+          &>.header__menu-list-sub {
+            z-index: 15;
+            opacity: 1;
+            @include anim;
+          }
+        }
+      }
+      &-brands {
+        position: static;
+        &:hover,
+        &:active,
+        &:focus {
+          .brands {
+            z-index: 30;
+            @include anim;
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  &__main {
+    padding: 5px 0;
+    background-color: $grayBG;
+    color: $lines;
+    &-location,
+    &-list,
+    &-personal {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 7%;
+    }
+    &-personal {
+      .line {
+        height: 30px;
+        width: 1px;
+        background-color: $elements;
+      }
+      a {
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+          .icon {
+            color: $action;
+            @include anim;
+          }
+        }
+      }
+    }
+    &-list {
+      width: 100%;
+      justify-content: center;
+      &-wrapper {
+        background-color: $grayBG;
+        padding: 10px 0;
+      }
+    }
+    &-location {
+      width: 10%;
+    }
+    &-item {
+      margin: 0 30px !important;
+      &.active {
+        a,
+        span,
+        .icon,
+        li {
+          color: $accent;
+        }
+      }
+      &-link {
+        @include fr;
+        color: $text;
+        position: relative;
+        &::after {
+          content: "";
+          display: inline-block;
+          height: 2px;
+          width: 100%;
+          max-width: 0;
+          background-color: $elements;
+          @include anim;
+          position: absolute;
+          bottom: -12px;
+          left: 0;
+        }
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+          @include anim;
+          color: $elements;
+        }
+      }
+      &:hover,
+      &:focus,
+      &:active,
+      &.active {
+        .header__main-item-link {
+          @include anim;
+          color: $elements;
+          &::after {
+            @include anim;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+//header end

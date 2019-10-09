@@ -1,0 +1,135 @@
+.contacts {
+  &-page {
+    .footer {
+      margin: 0;
+    }
+  }
+  &__maps {
+    margin-bottom: 0;
+    order: 0;
+    display: inline-flex;
+    width: 100%;
+  }
+  &__main {
+    margin-bottom: 0;
+  }
+  &__content {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    margin-bottom: 0;
+    @include respond-to(md) {
+
+    }
+  }
+  &__info {
+    width: 60%;
+    @include respond-to(md) {
+      width: 100%;
+    }
+    @include respond-to(xs-690) {
+      padding-right: 0;
+    }
+    &-title {
+      font-size: 18px;
+      line-height: 21px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+      color: $text;
+      @include fm;
+      .icon {
+        margin-right: 15px;
+        &:before {
+          color: $elements;
+        }
+      }
+      @include respond-to(xs-600) {
+        margin-bottom: 10px;
+      }
+    }
+    &-li {
+      margin-bottom: 35px;
+      @include respond-to(xs-600) {
+        margin-bottom: 10px;
+      }
+      &:before {
+        display: none;
+      }
+    }
+    &-list {
+      padding: 0;
+      margin: 0;
+    }
+    &-content {
+      span,
+      a {
+        width: 100%;
+        display: inline-block;
+        font-size: 18px;
+        line-height: 21px;
+        @include fr;
+        color: $lines;
+      }
+      a {
+        &:hover,
+        &:active,
+        &:focus {
+          color: $action;
+          @include anim;
+        }
+      }
+    }
+    &-adress {
+      .contacts__info-content {
+        margin-right: 25%;
+        padding: 15px 0;
+        border-bottom: 1px solid $accent;
+        span {
+          width: 100%;
+          display: inline-block;
+          font-size: 14px;
+          line-height: 16px;
+          @include fr;
+          color: $lines;
+        }
+      }
+    }
+  }
+  &__form {
+    &-form {
+      padding: 55px 70px;
+      background-color: transparentize($action, 0.9);
+    }
+    &-wrapper {
+      width: 40%;
+      @include respond-to(lg-1250) {
+        width: 400px;
+        padding: 35px 30px;
+      }
+      @include respond-to(md) {
+        position: static;
+        box-shadow: unset;
+        width: 100%;
+      }
+      @include respond-to(xs-600) {
+        padding: 15px 0;
+      }
+    }
+    &-title {
+      font-size: 18px;
+      line-height: 21px;
+      @include fm;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .btn {
+      @include fm;
+      font-size: 20px;
+      line-height: 23px;
+      padding: 10px 15px;
+      width: 100%;
+    }
+  }
+}

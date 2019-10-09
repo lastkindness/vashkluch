@@ -1,0 +1,147 @@
+//footer start
+.footer {
+  background-color: $elements;
+  padding: 30px 0 50px;
+  margin-top: 80px;
+  a {
+    color: $grayBG;
+    font-size: 14px;
+    line-height: 16px;
+    @include fl;
+    @include anim;
+    &:hover,
+    &:active,
+    &:focus,
+    &.active {
+      @include anim;
+      color: $accent;
+    }
+  }
+  &__wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+  &__services,
+  &__info,
+  &__phone,
+  &__social {
+    padding: 0 40px;
+    width: calc(25% - 20px);
+    .title {
+      margin: 0 0 30px;
+      color: $white;
+      font-size: 18px;
+      line-height: 21px;
+      text-align: center;
+      @include fb;
+      text-transform: lowercase;
+      span {
+        position: relative;
+        &:before,
+        &:after {
+          display: block;
+          content: "";
+          position: absolute;
+          width: 25px;
+          height: 1px;
+          background-color: $accent;
+          top: 50%;
+          transform: translateY(-50%);
+          left: -35px;
+        }
+        &:after {
+          left: unset;
+          right: -35px;
+        }
+      }
+    }
+    &-menu {
+      margin: 0;
+    }
+    &-li {
+      margin-bottom: 3px;
+      &.active {
+        a {
+          @include anim;
+          color: $accent;
+        }
+      }
+    }
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+  &__phone {
+    .icon {
+      color: $accent;
+      border-radius: 50%;
+      border: 3px solid $accent;
+      width: 40px !important;
+      height: 40px;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      max-width: none;
+      margin-right: 10px;
+      &:before {
+        font-size: 25px;
+      }
+    }
+    &-menu {
+      display: flex;
+      align-items: center;
+      justify-content: stretch;
+    }
+    &-subtitle {
+      text-align: center;
+      color: $grayBG;
+      font-size: 11px;
+      line-height: 13px;
+      @include fl;
+    }
+    &-list {
+      width: 70%;
+    }
+  }
+  &__social {
+    li {
+      &:before {
+        display: none;
+      }
+    }
+    .social-list {
+      margin: 0;
+      padding: 0;
+      justify-content: space-around;
+      height: 100%;
+    }
+    .social-item {
+      background-color: $accent;
+      margin-bottom: 0;
+      .icon {
+        color: $elements;
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        @include anim;
+        background-color: $darkElements;
+        .icon {
+          @include anim;
+          color: $accent;
+        }
+      }
+    }
+  }
+}
+//footer end

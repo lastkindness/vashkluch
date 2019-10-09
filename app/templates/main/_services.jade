@@ -1,0 +1,12 @@
+include ../../components/_service-item
+
+section.main-services
+    .main-page__title
+        span Наши услуги
+    .main-services-items.services__grid
+        - var img = ["recovery-key.svg", "fix-key.svg", "make-key.svg", "lock.svg"]
+        - var itemTitle = ["Восстановление авто ключей", "Ремонт авто ключей", "Изготовление авто ключей", "Аварийное открытие замков"]
+        - for (var i = 0; i < img.length; i++)
+            +service-item(img, itemTitle)
+
+
