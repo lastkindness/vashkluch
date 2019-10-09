@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Ваш Ключ</title>
+  <link rel="icon" sizes="32x32" type="image/x-icon" href="images/favicon/favicon-32x32.ico">
+  <link rel="icon" sizes="16x16" type="image/x-icon" href="images/favicon/favicon-16x16.ico">
+  <section class="preloader">
+    <style>.preloader{position:fixed;z-index:1000;width:100%;height:100vh;left:0;right:0;top:0;bottom:0;background-color:#22297a;opacity:1;transition:all .3s ease;display:flex;align-items:center;justify-content:center}.preloader.hide{opacity:0;transition:all .3s ease}.preloader.none{display:none}#loading{z-index:5;opacity:1;display:inline-block;width:50px;height:50px;border:3px solid rgba(255,255,255,.3);border-radius:50%;border-top-color:#fff;animation:spin 1s ease-in-out infinite;-webkit-animation:spin 1s ease-in-out infinite}@keyframes spin{to{-webkit-transform:rotate(360deg)}}@-webkit-keyframes spin{to{-webkit-transform:rotate(360deg)}}</style>
+    <div id="loading"></div>
+  </section>
+  <!--link(rel='stylesheet', type='text/css', href='css/lib.min.css')-->
+  <!--link(rel='stylesheet', type='text/css', href='css/main.css')-->
+  <!--link(rel='stylesheet', type='text/css', href='css/main.min.css') разкоментить по окончанию разработки, закомментить в админке main.css-->
+  
+  <body>
+    <noscript>
+      <div><strong>Для полной функциональности этого сайта необходимо включить JavaScript. Вот</strong><a href="https://support.google.com/adsense/answer/12654?hl=ru" target="_blank">инструкции,</a>как включить JavaScript в вашем браузере.
+        <link rel="stylesheet" type="text/css" href="css/without-js.css">
+      </div>
+    </noscript>
+    <div class="wrapper search-empty-page">
+      <header class="header">
+        <nav class="header__main">
+          <div class="container">
+            <div class="header__wrapper">
+              <div class="header__main-location">
+                <div class="header__currency">
+                        <div class="dropdown dropdown_native">
+                          <div class="dropdown__wrapper js__dropdown"><span></span>
+                            <div class="dropdown__header icon icon-arr"><span class="dropdown__header-item">₴ грн.</span></div>
+                            <ul style="display: none;" class="dropdown__dropdown">
+                              <li class="dropdown__item"><span class="dropdown__text">₴ грн.</span></li>
+                              <li class="dropdown__item"><span class="dropdown__text">$ долл.</span></li>
+                            </ul>
+                          </div>
+                        </div>
+                </div>
+                <div class="header__lang">
+                        <div class="dropdown dropdown_native">
+                          <div class="dropdown__wrapper js__dropdown"><span></span>
+                            <div class="dropdown__header icon icon-arr"><span class="dropdown__header-item">RU</span></div>
+                            <ul style="display: none;" class="dropdown__dropdown">
+                              <li class="dropdown__item"><span class="dropdown__text">RU</span></li>
+                              <li class="dropdown__item"><span class="dropdown__text">UA</span></li>
+                            </ul>
+                          </div>
+                        </div>
+                </div>
+              </div>
+              <div class="header__phone"><a href="tel:+380487001717" class="header__phone-link">
+                  <div class="icon icon-phone"></div>+38 (048)<span>700 17 17</span></a><a href="tel:+380674841450" class="header__phone-link">
+                  <div class="icon icon-phone"></div>+38 (067)<span>484 14 50</span></a>
+                <div class="header__phone-subtitle"><span>Работаем круглосуточно</span></div>
+              </div>
+              <div class="header__social">
+                <ul class="social-list">
+                  <li class="social-item"><a href="https://www.facebook.com/" target="_blank" rel="nofollow" class="icon-fb icon"></a></li>
+                  <li class="social-item"><a href="https://www.instagram.com/" target="_blank" rel="nofollow" class="icon-insta icon"></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="header__info">
+          <div class="container">
+            <div class="header__wrapper">
+              <div class="header__logo"><a href="http://html.myapp.com.ua/vashkluch/index.html"><img src="images/other/logo.png" alt="Ваш Ключ" title="Ваш Ключ"></a></div>
+              <div class="header__search">
+                <form class="search js_validate">
+                  <div class="input-container">
+                    <div class="search__input-container">
+                      <input type="text" placeholder="Я ищу..." name="search" required="required" data-validate="text" data-error-wrong="Недопустимые символы" data-error-empty="Введите колличество символов (2-100)" data-minsign="2" data-maxsign="100" class="search__input validate"><a href="http://html.myapp.com.ua/vashkluch/search.html" class="btn"><span>Искать</span></a>
+                      <!--+button('Искать', 'button')(class="") для бека, раскомментить, кнопку со ссылкой - удалить, это для визуала-перехода на страницу поиска, с ней валидация - не работает-->
+                      <!--.delete-->
+                      <div class="text-error">Введите колличество символов (2-100)</div>
+                    </div>
+                    <!--.search__example-->
+                    <!--    span.text Например,-->
+                    <!--    a.example(href="#") PR renaut-->
+                  </div>
+                </form>
+              </div>
+              <div class="header__main-personal"><a href="http://html.myapp.com.ua/vashkluch/profile.html" class="header__user">
+                  <div class="icon icon-user label-link"></div></a>
+                <div class="line"></div><a href="http://html.myapp.com.ua/vashkluch/cart.html" class="header__cart active">
+                  <div class="icon icon-cart label-link">
+                    <div class="value">1</div>
+                  </div></a>
+              </div>
+              <div class="header__burger">
+                <div class="burger"><span></span><span></span><span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="header__menu">
+          <div class="header__menu-wrapper">
+            <div class="container">
+              <ul class="header__menu-list">
+                <li class="header__menu-item header__menu-item-main header__menu-item-brands"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="header__menu-item-link header__menu-link">Автомобильные ключи</a>
+                  <div class="brands">
+                    <ul class="brands__list">
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/acura.png" alt="acura" title="acura"></div>
+                          <div class="brands__title">acura</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/alfa-romeo.png" alt="alfa-romeo" title="alfa-romeo"></div>
+                          <div class="brands__title">alfa-romeo</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/audi.png" alt="audi" title="audi"></div>
+                          <div class="brands__title">audi</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/bentley.png" alt="bentley" title="bentley"></div>
+                          <div class="brands__title">bentley</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/bmw-mini.png" alt="bmw-mini" title="bmw-mini"></div>
+                          <div class="brands__title">bmw-mini</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/buik.png" alt="buik" title="buik"></div>
+                          <div class="brands__title">buik</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/byd.png" alt="byd" title="byd"></div>
+                          <div class="brands__title">byd</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/cadillack.png" alt="cadillack" title="cadillack"></div>
+                          <div class="brands__title">cadillack</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/chery.png" alt="chery" title="chery"></div>
+                          <div class="brands__title">chery</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/chevrolet.png" alt="chevrolet" title="chevrolet"></div>
+                          <div class="brands__title">chevrolet</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/chrysler.png" alt="chrysler" title="chrysler"></div>
+                          <div class="brands__title">chrysler</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/citroen.png" alt="citroen" title="citroen"></div>
+                          <div class="brands__title">citroen</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/dacia.png" alt="dacia" title="dacia"></div>
+                          <div class="brands__title">dacia</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/daewoo.png" alt="daewoo" title="daewoo"></div>
+                          <div class="brands__title">daewoo</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/daihatsu.png" alt="daihatsu" title="daihatsu"></div>
+                          <div class="brands__title">daihatsu</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/dodge.png" alt="dodge" title="dodge"></div>
+                          <div class="brands__title">dodge</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/ducati.png" alt="ducati" title="ducati"></div>
+                          <div class="brands__title">ducati</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/fiat.png" alt="fiat" title="fiat"></div>
+                          <div class="brands__title">fiat</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/ford.png" alt="ford" title="ford"></div>
+                          <div class="brands__title">ford</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/geely.png" alt="geely" title="geely"></div>
+                          <div class="brands__title">geely</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/acura.png" alt="acura" title="acura"></div>
+                          <div class="brands__title">acura</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/alfa-romeo.png" alt="alfa-romeo" title="alfa-romeo"></div>
+                          <div class="brands__title">alfa-romeo</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/audi.png" alt="audi" title="audi"></div>
+                          <div class="brands__title">audi</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/bentley.png" alt="bentley" title="bentley"></div>
+                          <div class="brands__title">bentley</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/bmw-mini.png" alt="bmw-mini" title="bmw-mini"></div>
+                          <div class="brands__title">bmw-mini</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/buik.png" alt="buik" title="buik"></div>
+                          <div class="brands__title">buik</div></a></li>
+                      <li class="brands__li"><a href="http://html.myapp.com.ua/vashkluch/catalog-brands.html" class="brands__link">
+                          <div class="brands__img"><img src="images/brands/byd.png" alt="byd" title="byd"></div>
+                          <div class="brands__title">byd</div></a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="header__menu-item header__menu-item-main"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-link header__menu-link">Каталог</a>
+                  <ul class="header__menu-list-sub">
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей</a>
+                      <ul class="header__menu-list-sub">
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей английские</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей вертикальные</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей бородковые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки для автомобильных ключей</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мопедов и скутеров</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для домофонов</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей крест</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей помповые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мебели</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей ригельные</a></li>
+                      </ul>
+                    </li>
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей вертикальные</a>
+                      <ul class="header__menu-list-sub">
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей английские</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей вертикальные</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей бородковые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки для автомобильных ключей</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мопедов и скутеров</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для домофонов</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей крест</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей помповые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мебели</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей ригельные</a></li>
+                      </ul>
+                    </li>
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей бородковые</a>
+                      <ul class="header__menu-list-sub">
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей английские</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей вертикальные</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей бородковые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки для автомобильных ключей</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мопедов и скутеров</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для домофонов</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей крест</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей помповые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мебели</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей ригельные</a></li>
+                      </ul>
+                    </li>
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки для автомобильных ключей</a>
+                      <ul class="header__menu-list-sub">
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей английские</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей вертикальные</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей бородковые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки для автомобильных ключей</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мопедов и скутеров</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для домофонов</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей крест</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей помповые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мебели</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей ригельные</a></li>
+                      </ul>
+                    </li>
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мопедов и скутеров</a>
+                      <ul class="header__menu-list-sub">
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей английские</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей вертикальные</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей бородковые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки для автомобильных ключей</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мопедов и скутеров</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для домофонов</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей крест</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей помповые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мебели</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей ригельные</a></li>
+                      </ul>
+                    </li>
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для домофонов</a>
+                      <ul class="header__menu-list-sub">
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей английские</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей вертикальные</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей бородковые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки для автомобильных ключей</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мопедов и скутеров</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для домофонов</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей крест</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей помповые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мебели</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей ригельные</a></li>
+                      </ul>
+                    </li>
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей крест</a>
+                      <ul class="header__menu-list-sub">
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей английские</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей вертикальные</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей бородковые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки для автомобильных ключей</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мопедов и скутеров</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для домофонов</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей крест</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей помповые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мебели</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей ригельные</a></li>
+                      </ul>
+                    </li>
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей помповые</a>
+                      <ul class="header__menu-list-sub">
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей английские</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей вертикальные</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей бородковые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки для автомобильных ключей</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мопедов и скутеров</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для домофонов</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей крест</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей помповые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мебели</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей ригельные</a></li>
+                      </ul>
+                    </li>
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мебели</a>
+                      <ul class="header__menu-list-sub">
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей английские</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей вертикальные</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей бородковые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки для автомобильных ключей</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мопедов и скутеров</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для домофонов</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей крест</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей помповые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мебели</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей ригельные</a></li>
+                      </ul>
+                    </li>
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей ригельные</a>
+                      <ul class="header__menu-list-sub">
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей английские</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей вертикальные</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей бородковые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки для автомобильных ключей</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мопедов и скутеров</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для домофонов</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей крест</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей помповые</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей для мебели</a></li>
+                        <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки ключей ригельные</a></li>
+                      </ul>
+                    </li>
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link">Заготовки для автомобильных ключей с местом под чип</a></li>
+                  </ul>
+                </li>
+                <li class="header__menu-item header__menu-item-main"><a href="http://html.myapp.com.ua/vashkluch/services.html" class="header__menu-item-link header__menu-link">Наши услуги</a>
+                  <ul class="header__menu-list-sub">
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/service-one.html" class="header__menu-item-sub-link header__menu-link">Аварийное открытие замков</a></li>
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/service-one.html" class="header__menu-item-sub-link header__menu-link">Изготовление авто ключей</a></li>
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/service-one.html" class="header__menu-item-sub-link header__menu-link">Замена и установка замков</a></li>
+                    <li class="header__menu-item header__menu-item-sub"><a href="http://html.myapp.com.ua/vashkluch/service-one.html" class="header__menu-item-sub-link header__menu-link">Ремонт автомобильных замков</a></li>
+                  </ul>
+                </li>
+                <li class="header__menu-item header__menu-item-main"><a href="http://html.myapp.com.ua/vashkluch/stock.html" class="header__menu-item-link header__menu-link">Новинки и акции</a></li>
+                <!-- -var mainNav = ["Заготовки ключей", "Авто ключи", "Авто замки", "Оборудование для изгот ключей", "Аварийное открытие замков", "Изготовление авто ключей", "Замки", "Аксессуары", "Новинки и акции"]-->
+                <!-- -for (var i=0; i<mainNav.length; i++)-->
+                <!--     li.header__menu-item.header__menu-item-main-->
+                <!--         a(href="#" class="header__menu-item-link header__menu-link")= mainNav[i]-->
+                <!--         ul.header__menu-list-sub-->
+                <!--             -var mainSub = ["Заготовки ключей английские", "Заготовки ключей вертикальные", "Заготовки ключей бородковые", "Заготовки для автомобильных ключей", "Заготовки ключей для мопедов и скутеров", "Заготовки ключей для домофонов", "Заготовки ключей крест", "Заготовки ключей помповые", "Заготовки ключей для мебели", "Заготовки ключей ригельные", "Заготовки для автомобильных ключей с местом под чип"]-->
+                <!--             -for (var z=0; z<mainSub.length; z++)-->
+                <!--                 li.header__menu-item.header__menu-item-sub-->
+                <!--                     a(href="http://html.myapp.com.ua/vashkluch/subcategory.html" class="header__menu-item-sub-link header__menu-link")= mainSub[z]-->
+              </ul>
+            </div>
+          </div>
+          <div class="header__main-list-wrapper">
+            <div class="container">
+              <ul class="header__main-list">
+                <li class="header__main-item active"><a href="http://html.myapp.com.ua/vashkluch/content-page.html" class="header__menu-link header__main-item-link header__main-link">Доставка</a></li>
+                <li class="header__main-item"><a href="http://html.myapp.com.ua/vashkluch/content-page.html" class="header__menu-link header__main-item-link header__main-link">Оплата</a></li>
+                <li class="header__main-item"><a href="http://html.myapp.com.ua/vashkluch/contacts.html" class="header__menu-link header__main-item-link header__main-link">Контакты</a></li>
+                <li class="header__main-item"><a href="http://html.myapp.com.ua/vashkluch/content-page-img.html" class="header__menu-link header__main-item-link header__main-link">О нас</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <div class="container">
+        <main class="main">
+          <section class="page__header catalog__header">
+            <div class="page__header-search"></div>
+            <div class="page__header-wrapper"></div>
+          </section>
+          <section class="catalog catalog__wrapper">
+            <div class="catalog__grid-wrapper">
+              <div class="search-block"><span>По вашему запросу</span>
+                <div class="title">“PK RENAULT NE72 3кн”</div><span>Ничего не найдено, попробуйте изменить запрос</span>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__wrapper">
+            <nav class="footer__services footer__list">
+              <div class="title"><span>Наши услуги</span></div>
+              <ul class="footer__services-menu">
+                <li class="footer__services-li"><a href="http://html.myapp.com.ua/vashkluch/content-page-img.html" class="footer__services-link">Наши мастерские</a></li>
+                <li class="footer__services-li"><a href="http://html.myapp.com.ua/vashkluch/service-one.html" class="footer__services-link">Восставноление авто ключей</a></li>
+                <li class="footer__services-li"><a href="http://html.myapp.com.ua/vashkluch/service-one.html" class="footer__services-link">Ремонт авто ключей</a></li>
+                <li class="footer__services-li"><a href="http://html.myapp.com.ua/vashkluch/service-one.html" class="footer__services-link">Инструменты для открывания</a></li>
+                <li class="footer__services-li active"><a href="http://html.myapp.com.ua/vashkluch/service-one.html" class="footer__services-link">Аварийное открытие замков</a></li>
+              </ul>
+            </nav>
+            <nav class="footer__info footer__list">
+              <div class="title"><span>Информация</span></div>
+              <ul class="footer__info-menu">
+                <li class="footer__info-li"><a href="http://html.myapp.com.ua/vashkluch/content-page-img.html" class="footer__info-link">О нас</a></li>
+                <li class="footer__info-li"><a href="http://html.myapp.com.ua/vashkluch/content-page-img.html" class="footer__info-link">Оплата и доставка</a></li>
+                <li class="footer__info-li"><a href="http://html.myapp.com.ua/vashkluch/news.html" class="footer__info-link">Статьи</a></li>
+                <li class="footer__info-li"><a href="http://html.myapp.com.ua/vashkluch/contacts.html" class="footer__info-link">Контакты</a></li>
+                <li class="footer__info-li"><a href="http://html.myapp.com.ua/vashkluch/news.html" class="footer__info-link">Новости</a></li>
+                <li class="footer__info-li active"><a href="http://html.myapp.com.ua/vashkluch/mapsite.html" class="footer__info-link">Карта сайта</a></li>
+              </ul>
+            </nav>
+            <div class="footer__phone footer__list">
+              <div class="title"><span>контакты</span></div>
+              <div class="footer__phone-menu">
+                <div class="icon icon-phone"></div>
+                <div class="footer__phone-list"><a href="tel:+380674841450" class="footer__phone-link">+38 (067)<span>484-14-50</span></a><a href="tel:+380487001717" class="footer__phone-link">+38 (048)<span>700-17-17</span></a><a href="tel:+380677755585" class="footer__phone-link">+38 (048)<span>775-55-85</span></a></div>
+              </div>
+              <div class="footer__phone-subtitle"><span>(круглосуточная единая справочная)</span></div>
+            </div>
+            <div class="footer__social footer__list">
+              <div class="title"><span>мы в соцсетях</span></div>
+              <ul class="social-list">
+                <li class="social-item"><a href="https://www.facebook.com/" target="_blank" rel="nofollow" class="icon-fb icon"></a></li>
+                <li class="social-item"><a href="https://www.instagram.com/" target="_blank" rel="nofollow" class="icon-insta icon"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- popup SECTION-->
+      <div class="popup-overlay">
+        <div data-target="popup-order" class="popup popup__order">
+          <div class="popup-header">
+            <div class="subtitle">Ваш заказ успешно оформлен!</div>
+          </div>
+          <div class="popup-content">
+            <div class="content">В ближайшее время мы свяжемся с Вами</div>
+          </div>
+          <div class="close-btn icon icon-close"></div>
+        </div>
+        <div data-target="popup-cart" class="popup popup__cart">
+          <div class="popup-header">
+            <div class="subtitle">Спасибо!</div>
+          </div>
+          <div class="popup-content">
+            <div class="content">Товар добавлен<a href="http://html.myapp.com.ua/vashkluch/cart.html" class="btn btn-link"><span>в корзину</span></a>
+            </div>
+          </div>
+          <div class="close-btn icon icon-close"></div>
+        </div>
+        <div data-target="popup-product-delete" class="popup popup__product-delete">
+          <div class="popup-header">
+            <div class="subtitle">Удаление товара</div>
+          </div>
+          <div class="popup-content">
+            <div class="content">Данный товар будет удален
+              <div class="popup-buttons">
+                      <button type="submit" class="btn js__product-delete btn-transparent btn-small"><span>удалить</span></button>
+                      <button type="submit" class="btn js__product-delete-reset btn-small"><span>не удалять</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-target="popup-call" class="popup popup__call">
+          <form class="popup-content js_validate">
+            <div class="popup-header">
+              <div class="subtitle">В ближайшее время мы Вам перезвоним</div>
+            </div>
+            <div class="input-container">
+              <label for="name-call" class="req">Имя</label>
+              <input type="text" name="name" id="name-call" required="required" data-validate="text" data-error-wrong="Недопустимые символы" data-error-empty="Введите колличество символов (2-100)" data-minsign="2" data-maxsign="100" class="validate">
+              <div class="text-error">Поле  не заполнено</div>
+            </div>
+            <div class="input-container">
+              <label for="phone" class="req">Телефон</label>
+              <input type="tel" id="phone" required="required" data-validate="phone" data-error-wrong="Поле «Телефон» заполнено не верно" data-error-empty="Введите колличество символов(11)" class="validate">
+              <div class="text-error">Поле  не заполнено</div>
+            </div>
+                  <button type="submit" class="btn"><span>перезвоните мне</span></button>
+          </form>
+          <div class="close-btn icon icon-close"></div>
+        </div>
+        <div data-target="popup-missing" class="popup popup__call">
+          <form class="popup-content js_validate">
+            <div class="popup-header">
+              <div class="subtitle">В ближайшее время мы пришлём Вам уведомление о наличии</div>
+            </div>
+            <div class="popup-content">
+              <div class="content">Пожалуйста, оставьте свой контактный<br>e-mail.</div>
+              <div class="content">Мы оповестим вас о наличии интересующего вас товара, как только данный товар поступит на склад.</div>
+            </div>
+            <div class="input-container">
+              <label for="name" class="req">Имя</label>
+              <input type="text" name="name" id="name" required="required" data-validate="text" data-error-wrong="Недопустимые символы" data-error-empty="Введите колличество символов (2-100)" data-minsign="2" data-maxsign="100" class="validate">
+              <div class="text-error">Поле  не заполнено</div>
+            </div>
+            <div class="input-container">
+              <label for="email" class="req">Email</label>
+              <input type="email" name="email" id="email" required="required" data-validate="email" data-error-wrong="Поле «Email» заполнено не верно" data-error-empty="Поле «Email» не заполнено" class="validate">
+              <div class="text-error">Поле «Email» не заполнено</div>
+            </div>
+                  <button type="submit" class="btn"><span>сообщите мне о наличии товара</span></button>
+          </form>
+          <div class="close-btn icon icon-close"></div>
+        </div>
+        <div data-target="popup-mail" class="popup popup__mail">
+          <div class="popup-header">
+            <div class="subtitle">Спасибо!</div>
+          </div>
+          <div class="popup-content">
+            <div class="content">Ваше сообщение отправлено успешно!</div>
+          </div>
+          <div class="close-btn icon icon-close"></div>
+        </div>
+      </div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="css/lib.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.min.css">
+    <script type="text/javascript" src="js/lib.min.js"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAuu-TeMzXX-X7rBtKjmmVPt12Y_9LtHbY&amp;language=ru"></script>
+    <!--script(type='text/javascript', src='js/main.js') разкоментить по окончанию разработки, закомментить в админке main.js-->
+    <script type="text/javascript" src="js/main.min.js"></script>
+  </body>
+</html>

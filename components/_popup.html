@@ -1,0 +1,87 @@
+
+<!-- popup SECTION-->
+<div class="popup-overlay">
+  <div data-target="popup-order" class="popup popup__order">
+    <div class="popup-header">
+      <div class="subtitle">Ваш заказ успешно оформлен!</div>
+    </div>
+    <div class="popup-content">
+      <div class="content">В ближайшее время мы свяжемся с Вами</div>
+    </div>
+    <div class="close-btn icon icon-close"></div>
+  </div>
+  <div data-target="popup-cart" class="popup popup__cart">
+    <div class="popup-header">
+      <div class="subtitle">Спасибо!</div>
+    </div>
+    <div class="popup-content">
+      <div class="content">Товар добавлен<a href="http://html.myapp.com.ua/vashkluch/cart.html" class="btn btn-link"><span>в корзину</span></a>
+      </div>
+    </div>
+    <div class="close-btn icon icon-close"></div>
+  </div>
+  <div data-target="popup-product-delete" class="popup popup__product-delete">
+    <div class="popup-header">
+      <div class="subtitle">Удаление товара</div>
+    </div>
+    <div class="popup-content">
+      <div class="content">Данный товар будет удален
+        <div class="popup-buttons">
+          <button type="submit" class="btn js__product-delete btn-transparent btn-small"><span>удалить</span></button>
+          <button type="submit" class="btn js__product-delete-reset btn-small"><span>не удалять</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div data-target="popup-call" class="popup popup__call">
+    <form class="popup-content js_validate">
+      <div class="popup-header">
+        <div class="subtitle">В ближайшее время мы Вам перезвоним</div>
+      </div>
+      <div class="input-container">
+        <label for="name-call" class="req">Имя</label>
+        <input type="text" name="name" id="name-call" required="required" data-validate="text" data-error-wrong="Недопустимые символы" data-error-empty="Введите колличество символов (2-100)" data-minsign="2" data-maxsign="100" class="validate"/>
+        <div class="text-error">Поле  не заполнено</div>
+      </div>
+      <div class="input-container">
+        <label for="phone" class="req">Телефон</label>
+        <input type="tel" id="phone" required="required" data-validate="phone" data-error-wrong="Поле «Телефон» заполнено не верно" data-error-empty="Введите колличество символов(11)" class="validate"/>
+        <div class="text-error">Поле  не заполнено</div>
+      </div>
+      <button type="submit" class="btn"><span>перезвоните мне</span></button>
+    </form>
+    <div class="close-btn icon icon-close"></div>
+  </div>
+  <div data-target="popup-missing" class="popup popup__call">
+    <form class="popup-content js_validate">
+      <div class="popup-header">
+        <div class="subtitle">В ближайшее время мы пришлём Вам уведомление о наличии</div>
+      </div>
+      <div class="popup-content">
+        <div class="content">Пожалуйста, оставьте свой контактный<br/>e-mail.</div>
+        <div class="content">Мы оповестим вас о наличии интересующего вас товара, как только данный товар поступит на склад.</div>
+      </div>
+      <div class="input-container">
+        <label for="name" class="req">Имя</label>
+        <input type="text" name="name" id="name" required="required" data-validate="text" data-error-wrong="Недопустимые символы" data-error-empty="Введите колличество символов (2-100)" data-minsign="2" data-maxsign="100" class="validate"/>
+        <div class="text-error">Поле  не заполнено</div>
+      </div>
+      <div class="input-container">
+        <label for="email" class="req">Email</label>
+        <input type="email" name="email" id="email" required="required" data-validate="email" data-error-wrong="Поле «Email» заполнено не верно" data-error-empty="Поле «Email» не заполнено" class="validate"/>
+        <div class="text-error">Поле «Email» не заполнено</div>
+      </div>
+      <button type="submit" class="btn"><span>сообщите мне о наличии товара</span></button>
+    </form>
+    <div class="close-btn icon icon-close"></div>
+  </div>
+  <div data-target="popup-mail" class="popup popup__mail">
+    <div class="popup-header">
+      <div class="subtitle">Спасибо!</div>
+    </div>
+    <div class="popup-content">
+      <div class="content">Ваше сообщение отправлено успешно!</div>
+    </div>
+    <div class="close-btn icon icon-close"></div>
+  </div>
+</div>
