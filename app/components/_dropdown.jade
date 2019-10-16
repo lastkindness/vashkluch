@@ -15,14 +15,12 @@ mixin dropdown(classItem, text, tag, idItem)
     -else if (classItem=="dropdown_select")
         .dropdown.dropdown_select
             .dropdown__wrapper
-                span= tag
                 select.select.icon.icon-normal_arr(id=idItem)
                     - for (var i = 0; i < text.length; i++)
                         option= text[i]
     -else if (classItem=="dropdown_select_first")
         .dropdown.dropdown_select
             .dropdown__wrapper
-                span= tag
                 select.select.icon.icon-normal_arr.dropdown-menu(id=idItem required="required" data-validate="select2")
                     option(value=0 disabled="disabled" selected="selected")= text[0]
                     - for (var i = 0; i < text.length-1; i++)

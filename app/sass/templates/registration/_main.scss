@@ -1,0 +1,64 @@
+.registration {
+  &-page {
+    .tub_filter {
+      order: 0;
+      margin-top: 0;
+      width: 100%;
+      .tub_header {
+        display: flex;
+        align-items: stretch;
+        justify-content: space-between;
+        .title {
+          width: 50%;
+          padding: 15px 0;
+          text-align: center;
+          background-color: $elements;
+          font-size: 18px;
+          line-height: 22px;
+          @include fm;
+          color: $white;
+          @include anim;
+          &:before {
+            display: none;
+          }
+          &:hover,
+          &:active,
+          &:focus {
+            background-color: $action;
+            cursor: pointer;
+            @include anim;
+          }
+          &.active {
+            background-color: $white;
+            color: $darkElements;
+            font-size: 22px;
+            line-height: 22px;
+            @include anim;
+          }
+        }
+      }
+    }
+    .tub_body {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      .registration__title {
+        margin: 20px 0;
+        text-align: center;
+        font-size: 24px;
+        line-height: 24px;
+        @include fb;
+      }
+    }
+    .registration__form {
+      width: 60%;
+      margin: 0 auto;
+      text-align: center;
+      .btn {
+        padding: 20px 30px;
+        display: inline-block;
+        width: auto;
+      }
+    }
+  }
+}

@@ -982,6 +982,14 @@
             minimumResultsForSearch: -1
         });
     }
+    if ($("#sort-region").length) {
+        $("#sort-region").select2({
+        });
+    }
+    if ($("#sort-country").length) {
+        $("#sort-country").select2({
+        });
+    }
 
     //select2 end
 
@@ -1558,7 +1566,20 @@
     }
     // elevateZoom end
 
-    //card auto-fix-sidebar end
+    // profile details start
+    if($('.profile-page').length) {
+        $('.main-table .details').on('click', function(event){
+            $(this).closest('.main-table').find('.order-table').toggle();
+            $(this).toggleClass("show");
+            if ($(this).hasClass("show")) {
+                $(this).text($(this).attr('data-hidden'));
+                console.log($(this).attr('data-hidden'));
+            } else {
+                $(this).text($(this).attr('data-show'));
+                console.log($(this).attr('data-show'));
+            }
+        });
+    }
 
     var popupBtn = document.querySelector(".popup__call .btn");
     popupBtn.addEventListener('click', function(e) {

@@ -70,3 +70,15 @@ include _button
         .popup-content
             .content Ваше сообщение отправлено успешно!
         .close-btn.icon.icon-close
+
+    .popup.popup__mail(data-target="popup-pass-recover")
+        .popup-header
+            .subtitle Забыли пароль?
+        form.popup-content.js_validate
+            .content Введите email, на который зарегестрирован ваш профиль и мы вышлем вам новый пароль.
+            .input-container
+                label.req(for="email2") Email
+                input(type="email" name="email" id="email2" required="required" data-validate="email" data-error-wrong="Поле «Email» заполнено не верно" data-error-empty="Поле «Email» не заполнено").validate
+                .text-error Поле «Email» не заполнено
+            +button('Получить новый пароль', 'button')
+        .close-btn.icon.icon-close
