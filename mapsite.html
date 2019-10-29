@@ -82,7 +82,7 @@
                   </div>
                 </form>
               </div>
-              <div class="header__main-personal"><a href="http://html.myapp.com.ua/vashkluch/profile.html" class="header__user">
+              <div class="header__main-personal"><a href="http://html.myapp.com.ua/vashkluch/registration.html" class="header__user">
                   <div class="icon icon-user label-link"></div></a>
                 <div class="line"></div><a href="http://html.myapp.com.ua/vashkluch/cart.html" class="header__cart active">
                   <div class="icon icon-cart label-link">
@@ -406,6 +406,8 @@
                     <li class="mapsite__li"><a href="http://html.myapp.com.ua/vashkluch/contacts.html" class="mapsite__link">Контакты</a></li>
                     <li class="mapsite__li"><a href="http://html.myapp.com.ua/vashkluch/content-page.html" class="mapsite__link">Контентная страница без картинки</a></li>
                     <li class="mapsite__li"><a href="http://html.myapp.com.ua/vashkluch/content-page-img.html" class="mapsite__link">Контентная страница с картинкой</a></li>
+                    <li class="mapsite__li"><a href="http://html.myapp.com.ua/vashkluch/profile.html" class="mapsite__link">Личный кабинет</a></li>
+                    <li class="mapsite__li"><a href="http://html.myapp.com.ua/vashkluch/profile-new-adress.html" class="mapsite__link">Личный кабинет страница редактирования адреса доставки</a></li>
                     <li class="mapsite__li"><a href="http://html.myapp.com.ua/vashkluch/error.html" class="mapsite__link">404 страница</a></li>
                   </ul>
                 </div>
@@ -539,6 +541,21 @@
           <div class="popup-content">
             <div class="content">Ваше сообщение отправлено успешно!</div>
           </div>
+          <div class="close-btn icon icon-close"></div>
+        </div>
+        <div data-target="popup-pass-recover" class="popup popup__mail">
+          <div class="popup-header">
+            <div class="subtitle">Забыли пароль?</div>
+          </div>
+          <form class="popup-content js_validate">
+            <div class="content">Введите email, на который зарегестрирован ваш профиль и мы вышлем вам новый пароль.</div>
+            <div class="input-container">
+              <label for="email2" class="req">Email</label>
+              <input type="email" name="email" id="email2" required="required" data-validate="email" data-error-wrong="Поле «Email» заполнено не верно" data-error-empty="Поле «Email» не заполнено" class="validate">
+              <div class="text-error">Поле «Email» не заполнено</div>
+            </div>
+                  <button type="submit" class="btn"><span>Получить новый пароль</span></button>
+          </form>
           <div class="close-btn icon icon-close"></div>
         </div>
       </div>

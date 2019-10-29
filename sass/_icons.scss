@@ -14,6 +14,7 @@ $icon_font_name:"Icons";
 %icon-cart,
 %icon-check,
 %icon-close,
+%icon-doc,
 %icon-fb,
 %icon-gift,
 %icon-google-plus,
@@ -89,42 +90,45 @@ $icon_font_name:"Icons";
 %icon-close:before {
 	content:'\E007';
 }
-%icon-fb:before {
+%icon-doc:before {
 	content:'\E008';
 }
-%icon-gift:before {
+%icon-fb:before {
 	content:'\E009';
 }
-%icon-google-plus:before {
+%icon-gift:before {
 	content:'\E00A';
 }
-%icon-insta:before {
+%icon-google-plus:before {
 	content:'\E00B';
 }
-%icon-link:before {
+%icon-insta:before {
 	content:'\E00C';
 }
-%icon-mail:before {
+%icon-link:before {
 	content:'\E00D';
 }
-%icon-map:before {
+%icon-mail:before {
 	content:'\E00E';
 }
-%icon-phone:before {
+%icon-map:before {
 	content:'\E00F';
 }
-%icon-pint:before {
+%icon-phone:before {
 	content:'\E010';
 }
-%icon-search:before {
+%icon-pint:before {
 	content:'\E011';
 }
-%icon-tweet:before {
+%icon-search:before {
 	content:'\E012';
 }
-%icon-user:before {
+%icon-tweet:before {
 	content:'\E013';
 }
-%icon-vk:before {
+%icon-user:before {
 	content:'\E014';
+}
+%icon-vk:before {
+	content:'\E015';
 }

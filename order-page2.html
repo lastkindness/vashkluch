@@ -82,7 +82,7 @@
                   </div>
                 </form>
               </div>
-              <div class="header__main-personal"><a href="http://html.myapp.com.ua/vashkluch/profile.html" class="header__user">
+              <div class="header__main-personal"><a href="http://html.myapp.com.ua/vashkluch/registration.html" class="header__user">
                   <div class="icon icon-user label-link"></div></a>
                 <div class="line"></div><a href="http://html.myapp.com.ua/vashkluch/cart.html" class="header__cart active">
                   <div class="icon icon-cart label-link">
@@ -419,7 +419,7 @@
                       <div style="display: none;" class="order_content__delivery-item delivery-postoffice">
                         <div class="input-container js_valid_select">
                                                     <div class="dropdown dropdown_select">
-                                                      <div class="dropdown__wrapper"><span></span>
+                                                      <div class="dropdown__wrapper">
                                                         <select id="sort-city" required="required" data-validate="select2" class="select icon icon-normal_arr dropdown-menu">
                                                           <option value="0" disabled="disabled" selected="selected">Город*</option>
                                                           <option value="1">Черкассы</option>
@@ -446,7 +446,7 @@
                         </div>
                         <div class="input-container js_valid_select">
                                                     <div class="dropdown dropdown_select">
-                                                      <div class="dropdown__wrapper"><span></span>
+                                                      <div class="dropdown__wrapper">
                                                         <select id="sort-np" required="required" data-validate="select2" class="select icon icon-normal_arr dropdown-menu">
                                                           <option value="0" disabled="disabled" selected="selected">Выбор отделения*</option>
                                                           <option value="1">Отделение №1, ул. Полевая, д. 67</option>
@@ -461,7 +461,7 @@
                       <div style="display: none;" class="order_content__delivery-item delivery-courier">
                         <div class="input-container js_valid_select">
                                                     <div class="dropdown dropdown_select">
-                                                      <div class="dropdown__wrapper"><span></span>
+                                                      <div class="dropdown__wrapper">
                                                         <select id="sort-city-courier" required="required" data-validate="select2" class="select icon icon-normal_arr dropdown-menu">
                                                           <option value="0" disabled="disabled" selected="selected">Город*</option>
                                                           <option value="1">Черкассы</option>
@@ -686,6 +686,21 @@
           <div class="popup-content">
             <div class="content">Ваше сообщение отправлено успешно!</div>
           </div>
+          <div class="close-btn icon icon-close"></div>
+        </div>
+        <div data-target="popup-pass-recover" class="popup popup__mail">
+          <div class="popup-header">
+            <div class="subtitle">Забыли пароль?</div>
+          </div>
+          <form class="popup-content js_validate">
+            <div class="content">Введите email, на который зарегестрирован ваш профиль и мы вышлем вам новый пароль.</div>
+            <div class="input-container">
+              <label for="email2" class="req">Email</label>
+              <input type="email" name="email" id="email2" required="required" data-validate="email" data-error-wrong="Поле «Email» заполнено не верно" data-error-empty="Поле «Email» не заполнено" class="validate">
+              <div class="text-error">Поле «Email» не заполнено</div>
+            </div>
+                  <button type="submit" class="btn"><span>Получить новый пароль</span></button>
+          </form>
           <div class="close-btn icon icon-close"></div>
         </div>
       </div>

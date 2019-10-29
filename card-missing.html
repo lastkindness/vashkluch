@@ -82,7 +82,7 @@
                   </div>
                 </form>
               </div>
-              <div class="header__main-personal"><a href="http://html.myapp.com.ua/vashkluch/profile.html" class="header__user">
+              <div class="header__main-personal"><a href="http://html.myapp.com.ua/vashkluch/registration.html" class="header__user">
                   <div class="icon icon-user label-link"></div></a>
                 <div class="line"></div><a href="http://html.myapp.com.ua/vashkluch/cart.html" class="header__cart active">
                   <div class="icon icon-cart label-link">
@@ -3803,6 +3803,21 @@
           <div class="popup-content">
             <div class="content">Ваше сообщение отправлено успешно!</div>
           </div>
+          <div class="close-btn icon icon-close"></div>
+        </div>
+        <div data-target="popup-pass-recover" class="popup popup__mail">
+          <div class="popup-header">
+            <div class="subtitle">Забыли пароль?</div>
+          </div>
+          <form class="popup-content js_validate">
+            <div class="content">Введите email, на который зарегестрирован ваш профиль и мы вышлем вам новый пароль.</div>
+            <div class="input-container">
+              <label for="email2" class="req">Email</label>
+              <input type="email" name="email" id="email2" required="required" data-validate="email" data-error-wrong="Поле «Email» заполнено не верно" data-error-empty="Поле «Email» не заполнено" class="validate">
+              <div class="text-error">Поле «Email» не заполнено</div>
+            </div>
+                  <button type="submit" class="btn"><span>Получить новый пароль</span></button>
+          </form>
           <div class="close-btn icon icon-close"></div>
         </div>
       </div>
