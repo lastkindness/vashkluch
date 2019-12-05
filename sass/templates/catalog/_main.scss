@@ -23,12 +23,21 @@
       &__header {
         &-wrapper {
           flex-wrap: nowrap;
+          @include respond-to(sm){
+            flex-wrap: wrap;
+          }
         }
         &-title {
           width: 50%;
+          @include respond-to(sm){
+            width: 100%
+          }
         }
         &-sort {
           width: 50%;
+          @include respond-to(sm){
+            width: 100%
+          }
         }
       }
     }
@@ -57,9 +66,24 @@
   .catalog {
     &__grid {
       width: calc(75% - 40px);
+      @include respond-to(lg-1200){
+        margin: 0;
+      }
+      @include respond-to(tablet-1030){
+        width: 100%;
+        margin: 0;
+      }
       &.main-products-item {
         .product-item {
           width: calc(33.3% - 20px);
+          @include respond-to(lg-1200){
+            width: 50%;
+            margin: 0;
+          }
+          @include respond-to(md){
+            width: 100%;
+            margin: 0 0 20px;
+          }
         }
       }
     }

@@ -14,9 +14,20 @@
       justify-content: flex-start;
       margin: 0 -5px 25px;
       width: 65%;
+      @include respond-to(lg){
+        width: 100%;
+        margin: 0 0 25px;
+      }
       &.slick-slider {
         .product-item {
           height: 100%;
+          &__wrapper {
+            width: 100%;
+            height: 100%;
+          }
+          &__main {
+            height: auto;
+          }
         }
         .slick-track {
           height: 100%;
@@ -25,8 +36,8 @@
     }
     &-title {
       @include fm;
-      font-size: 12px;
-      line-height: 14px;
+      font-size: 16px;
+      line-height: 18px;
       color: $text;
     }
     .product-item {

@@ -6,7 +6,7 @@
   @include anim;
   margin-bottom: 40px;
   @include respond-to(tablet-1030){
-    display: none;
+    //display: none;
   }
   &_item {
     padding: 0 20px 15px;
@@ -72,12 +72,12 @@
           &:before {
             transform: rotate(180deg);
             @include anim;
-            @include respond-to(tablet-1030){
-              content:'\E008';
-            }
           }
           @include respond-to(tablet-1030){
             display: inline-block;
+            font-size: 10px;
+            line-height: 10px;
+            margin-left: 10px;
           }
         }
       }
@@ -208,7 +208,7 @@
     }
   }
   @include respond-to(tablet-1030){
-    border-top: 6px solid $grayBG;
+    border-top: 6px solid $elements;
   }
   &.open {
     @include respond-to(tablet-1030){

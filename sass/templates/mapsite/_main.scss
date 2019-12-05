@@ -2,6 +2,10 @@
   &__link {
     font-size: 20px;
     line-height: 24px;
+    @include respond-to(xs) {
+      font-size: 16px;
+      line-height: 18px;
+    }
   }
   &__li {
     top: 10px;
@@ -9,5 +13,8 @@
   }
   &__list {
     margin: 0px 0 20px 40px;
+    @include respond-to(xs) {
+      margin: 0px 0 20px 20px;
+    }
   }
 }

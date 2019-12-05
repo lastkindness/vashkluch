@@ -16,6 +16,9 @@
       width: 270px;
       height: auto;
       max-width: 100%;
+      @include respond-to(xs) {
+        width: 160px;
+      }
     }
     @include respond-to(md) {
       width: 100%;
@@ -28,6 +31,9 @@
     padding-right: 20%;
     @include respond-to(md) {
       flex-wrap: wrap;
+    }
+    @include respond-to(lg-1360) {
+      padding-right: 0;
     }
   }
   &__text {

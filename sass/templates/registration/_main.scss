@@ -54,6 +54,12 @@
       width: 60%;
       margin: 0 auto;
       text-align: center;
+      @include respond-to(md) {
+        width: 80%;
+      }
+      @include respond-to(xs) {
+        width: 100%;
+      }
       .btn {
         padding: 20px 30px;
         display: inline-block;

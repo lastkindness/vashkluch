@@ -18,12 +18,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include respond-to(sm) {
+      flex-wrap: wrap;
+    }
   }
   &__advantages {
     width: calc(65% - 30px);
     margin: 0;
     padding: 0;
     padding-right: 10%;
+    @include respond-to(lg-1200) {
+      width: calc(55% - 30px);
+      padding: 0;
+    }
+    @include respond-to(sm) {
+      width: 100%;
+    }
     &-item {
       display: flex;
       align-items: center;
@@ -41,24 +51,47 @@
         font-size: 25px;
         line-height: 29px;
         color: $elements;
+        @include respond-to(lg-1200) {
+          font-size: 20px;
+          line-height: 24px;
+        }
       }
     }
   }
   &__prices {
     width: calc(35%);
+    @include respond-to(lg-1200) {
+      width: calc(50%);
+    }
+    @include respond-to(sm) {
+      width: 100%;
+    }
   }
   &__phone {
     display: flex;
     align-items: stretch;
     justify-content: flex-start;
     background-color: transparentize($action, 0.9);
+    @include respond-to(md) {
+      flex-wrap: wrap;
+    }
     .header__phone {
       padding: 10px;
       flex-grow: 1;
       justify-content: space-between;
+      @include respond-to(xs-690) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
       &-link {
         font-size: 24px;
         line-height: 28px;
+        @include respond-to(lg-1200) {
+          font-size: 18px;
+          line-height: 20px;
+        }
         .icon {
           font-size: 27px;
         }
@@ -69,6 +102,9 @@
       font-size: 20px;
       line-height: 23px;
       @include fm;
+      @include respond-to(md) {
+        width: 100%;
+      }
     }
   }
   &__slider {
@@ -95,6 +131,12 @@
         img {
           height: 100%;
           max-width: unset;
+          @include respond-to(lg-1200) {
+            height: 115%;
+          }
+          @include respond-to(xs) {
+            height: 120%;
+          }
         }
       }
     }

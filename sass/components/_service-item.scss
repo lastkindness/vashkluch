@@ -7,6 +7,9 @@
   flex-direction: column;
   border: 1px solid $grayBG;
   height: 420px;
+  @include respond-to(lg-1360){
+    padding: 25px;
+  }
   &__title {
     @include fm;
     font-size:20px;

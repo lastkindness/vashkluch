@@ -6,6 +6,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      @include respond-to(lg){
+        height: 250px;
+      }
+      @include respond-to(xs-690){
+        height: 130px;
+      }
       img {
         width: 100%;
         max-width: 100%;

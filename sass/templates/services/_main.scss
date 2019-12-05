@@ -10,5 +10,8 @@
   }
   &__main {
     margin: 45px 0;
+    @include respond-to(xs) {
+      margin: 0;
+    }
   }
 }

@@ -1,5 +1,64 @@
 //header start
 .header {
+  position: relative;
+  z-index: 30;
+  @include respond-to(xs-690){
+    border-bottom: 1px solid $lines;
+  }
+  &.mobile {
+    background-color: $white;
+    &.active {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      .header__menu {
+        @include respond-to(xs-690){
+          position: fixed;
+          top: 132px;
+          width: 100%;
+          z-index: 20;
+          height: calc(100vh - 130px);
+          max-height: calc(100vh - 130px);
+          opacity: 1;
+          @include anim;
+          overflow-y: auto;
+          visibility: visible;
+        }
+        @include respond-to(xs-480){
+          height: calc(100vh - 96px);
+          max-height: calc(100vh - 96px);
+          top: 97px;
+        }
+        &-list-sub {
+          //border-top: 1px solid $accent;
+          display: none;
+          &.active {
+            position: fixed;
+            width: 100%;
+            top: 132px;
+            left: 0;
+            z-index: 35;
+            opacity: 1;
+            visibility: visible;
+            display: block;
+            height: calc(100% - 130px);
+            background-color: #fff;
+            @include anim;
+            overflow-y: auto;
+            text-align: left;
+            @include respond-to(xs-480){
+              top: 97px;
+              height: calc(100% - 96px);
+            }
+          }
+          .back {
+            display: inline-flex;
+            width: auto;
+          }
+        }
+      }
+    }
+  }
   li {
     margin: 0;
     &:before {
@@ -17,6 +76,9 @@
   }
   &__burger {
     display: none;
+    @include respond-to(xs-690){
+      display: block;
+    }
   }
   &__user {
     .icon {
@@ -109,17 +171,50 @@
       }
     }
   }
+  &__currency {
+    @include respond-to(xs-690){
+      padding-right: 15px;
+      border-right: 1px solid $elements;
+    }
+  }
+  &__lang {
+    @include respond-to(xs-690){
+      padding-left: 15px;
+    }
+  }
   &__info {
     padding: 20px 0;
+    @include respond-to(xs-480){
+      padding: 10px 0;
+    }
   }
   &__logo {
     width: 200px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    @include respond-to(md){
+      width: 100px;
+    }
+    @include respond-to(xs-690){
+      width: 150px;
+    }
+    @include respond-to(xs-480){
+      width: 100px;
+    }
   }
   &__social {
     width: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include respond-to(md){
+      width: 10%;
+    }
+    @include respond-to(xs-690){
+      width: auto;
+      order: 0;
+    }
     .social {
       &-item {
         background-color: transparent;
@@ -135,6 +230,10 @@
           }
         }
       }
+      &-list {
+        width: 100%;
+        justify-content: flex-end;
+      }
     }
   }
   &__phone {
@@ -142,6 +241,9 @@
     //flex-direction: column;
     align-items: center;
     justify-content: center;
+    @include respond-to(xs-690){
+      display: none;
+    }
     &-subtitle {
       color: $textLight;
       @include fb;
@@ -168,12 +270,68 @@
         font-size: 17px;
       }
     }
+    &-mobile {
+      display: none;
+      font-size: 25px;
+      @include fr;
+      color: $elements;
+      @include respond-to(xs-690){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
   &__search {
     width: 65%;
+    &-icon {
+      display: none;
+      font-size: 23px;
+      @include fr;
+      color: $elements;
+      &:hover,
+      &:active,
+      &:focus {
+        @include anim;
+        color: $action;
+      }
+      @include respond-to(xs-690){
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    @include respond-to(xs-690){
+      position: absolute;
+      top: 100%;
+      width: 100%;
+      background-color: $white;
+      border-bottom: 1px solid $lines;
+      border-top: 1px solid $lines;
+      padding: 10px;
+      left: 0;
+      z-index: -1;
+      opacity: 0;
+      @include anim;
+      visibility: hidden;
+    }
+    &.active {
+      @include anim;
+      visibility: visible;
+      z-index: 10;
+      opacity: 1;
+    }
   }
   &__menu {
     background-color: $elements;
+    @include respond-to(xs-690){
+      opacity: 0;
+      visibility: hidden;
+      z-index: -1;
+      position: fixed;
+      @include anim;
+
+    }
     .brands {
       position: absolute;
       z-index: -10;
@@ -182,10 +340,18 @@
       height: auto;
       top: 100%;
       left: 0;
+      display: none;
       @include anim;
+      @include respond-to(xs-690){
+       display: none;
+      }
     }
     &-wrapper {
-      //position: relative;
+      &>.container {
+        @include respond-to(xs-690){
+          width: 100%;
+        }
+      }
     }
     &-list {
       display: grid;
@@ -195,6 +361,9 @@
       justify-content: space-between;
       text-align: center;
       position: relative;
+      @include respond-to(xs-690){
+        grid-template-columns: repeat(auto-fit, minmax(100%, 100%));
+      }
       &-sub {
         position: absolute;
         z-index: -1;
@@ -204,8 +373,15 @@
         top: 50px;
         left: 0;
         background-color: $grayBG3;
+        display: none;
         //padding: 5px 0 !important;
         padding: 0 !important;
+        @include respond-to(sm){
+          width: 250px;
+        }
+        .back {
+          display: none;
+        }
       }
     }
     &-link {
@@ -270,6 +446,7 @@
           &>.header__menu-list-sub {
             z-index: 15;
             opacity: 1;
+            display: block;
             @include anim;
           }
           &:after {
@@ -290,6 +467,12 @@
             z-index: 15;
             opacity: 1;
             @include anim;
+            display: block;
+            @include respond-to(xs-690){
+              z-index: -1;
+              @include anim;
+              opacity: 0;
+            }
           }
         }
       }
@@ -302,6 +485,34 @@
             z-index: 30;
             @include anim;
             opacity: 1;
+            display: block;
+            @include respond-to(xs-690){
+              z-index: -1;
+              @include anim;
+              opacity: 0;
+            }
+          }
+        }
+        &.active {
+          .brands {
+            position: fixed;
+            top: 132px;
+            height: calc(100vh - 130px);
+            max-height: calc(100vh - 130px);
+            width: 100%;
+            z-index: 35;
+            opacity: 1;
+            overflow-y: auto;
+            display: block;
+            @include anim;
+            .back {
+              display: flex;
+            }
+            @include respond-to(xs-480){
+              height: calc(100vh - 96px);
+              max-height: calc(100vh - 96px);
+              top: 97px;
+            }
           }
         }
       }
@@ -318,12 +529,24 @@
       align-items: center;
       justify-content: space-between;
       width: 7%;
+      @include respond-to(md){
+        width: 12%;
+      }
+      @include respond-to(lg){
+        width: 12%;
+      }
     }
     &-personal {
       .line {
-        height: 30px;
+        //height: 30px;
+        //width: 1px;
+        height: 1px;
         width: 1px;
+        transform: rotate(90deg);
         background-color: $elements;
+        @include respond-to(md){
+          display: none;
+        }
       }
       a {
         &:hover,
@@ -336,6 +559,15 @@
           }
         }
       }
+      &>* {
+        padding: 0 10px;
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+      @include respond-to(md){
+        width: auto;
+      }
     }
     &-list {
       width: 100%;
@@ -343,13 +575,30 @@
       &-wrapper {
         background-color: $grayBG;
         padding: 10px 0;
+        @include respond-to(xs-690){
+          border-top: 1px solid $accent;
+          border-bottom: 1px solid $accent;
+        }
+      }
+      @include respond-to(xs-690){
+        flex-direction: column;
       }
     }
     &-location {
       width: 10%;
+      @include respond-to(md){
+        width: 15%;
+      }
+      @include respond-to(xs-690){
+        width: auto;
+        order: 1;
+      }
     }
     &-item {
       margin: 0 30px !important;
+      @include respond-to(xs-690){
+        padding: 10px 0;
+      }
       &.active {
         a,
         span,
@@ -373,6 +622,9 @@
           position: absolute;
           bottom: -12px;
           left: 0;
+          @include respond-to(xs-690){
+            display: none;
+          }
         }
         &:hover,
         &:focus,
