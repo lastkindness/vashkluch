@@ -24,6 +24,8 @@ header.header
                     .header__phone-subtitle
                         span Работаем круглосуточно
                 .header__social
+                    .header__phone-mobile
+                        .icon.icon-phone(data-target="phone")
                     ul.social-list
                         li.social-item
                             a(href="https://www.facebook.com/" target="_blank" rel="nofollow").icon-fb.icon
@@ -39,17 +41,19 @@ header.header
                 .header__search
                     include _search
                 .header__main-personal
+                    .header__search-icon
+                        .icon.icon-search
                     a(href="http://html.myapp.com.ua/vashkluch/registration.html").header__user
                         .icon.icon-user.label-link
                     .line
                     a(href="http://html.myapp.com.ua/vashkluch/cart.html").header__cart.active
                         .icon.icon-cart.label-link
                             .value 1
-                .header__burger
-                    .burger
-                        span
-                        span
-                        span
+                    .header__burger
+                        .burger
+                            span
+                            span
+                            span
 
     nav.header__menu
         .header__menu-wrapper
@@ -61,11 +65,17 @@ header.header
                     li.header__menu-item.header__menu-item-main
                         a(href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-link header__menu-link") Каталог
                         ul.header__menu-list-sub
+                            .back
+                                .icon.icon-arr
+                                span Назад
                             -var mainSub = ["Заготовки ключей", "Авто ключи", "Авто замки", "Оборудование для изгот ключей", "Аварийное открытие замков", "Изготовление авто ключей", "Замки", "Аксессуары", "Новинки и акции"]
                             -for (var z=0; z<mainSub.length; z++)
                                 li.header__menu-item.header__menu-item-sub
                                     a(href="http://html.myapp.com.ua/vashkluch/catalog.html" class="header__menu-item-sub-link header__menu-link")= mainSub[z]
                                     ul.header__menu-list-sub
+                                        .back
+                                            .icon.icon-arr
+                                            span Назад
                                         -var mainSub = ["Заготовки ключей английские", "Заготовки ключей вертикальные", "Заготовки ключей бородковые", "Заготовки для автомобильных ключей", "Заготовки ключей для мопедов и скутеров", "Заготовки ключей для домофонов", "Заготовки ключей крест", "Заготовки ключей помповые", "Заготовки ключей для мебели", "Заготовки ключей ригельные"]
                                         -for (var n=0; n<mainSub.length; n++)
                                             li.header__menu-item.header__menu-item-sub
@@ -75,6 +85,9 @@ header.header
                     li.header__menu-item.header__menu-item-main
                         a(href="http://html.myapp.com.ua/vashkluch/services.html" class="header__menu-item-link header__menu-link") Наши услуги
                         ul.header__menu-list-sub
+                            .back
+                                .icon.icon-arr
+                                span Назад
                             -var mainSub = ["Аварийное открытие замков", "Изготовление авто ключей", "Замена и установка замков", "Ремонт автомобильных замков"]
                             -for (var z=0; z<mainSub.length; z++)
                                 li.header__menu-item.header__menu-item-sub
@@ -82,15 +95,6 @@ header.header
                     li.header__menu-item.header__menu-item-main
                         a(href="http://html.myapp.com.ua/vashkluch/stock.html" class="header__menu-item-link header__menu-link") Новинки и акции
 
-                    // -var mainNav = ["Заготовки ключей", "Авто ключи", "Авто замки", "Оборудование для изгот ключей", "Аварийное открытие замков", "Изготовление авто ключей", "Замки", "Аксессуары", "Новинки и акции"]
-                    // -for (var i=0; i<mainNav.length; i++)
-                    //     li.header__menu-item.header__menu-item-main
-                    //         a(href="#" class="header__menu-item-link header__menu-link")= mainNav[i]
-                    //         ul.header__menu-list-sub
-                    //             -var mainSub = ["Заготовки ключей английские", "Заготовки ключей вертикальные", "Заготовки ключей бородковые", "Заготовки для автомобильных ключей", "Заготовки ключей для мопедов и скутеров", "Заготовки ключей для домофонов", "Заготовки ключей крест", "Заготовки ключей помповые", "Заготовки ключей для мебели", "Заготовки ключей ригельные", "Заготовки для автомобильных ключей с местом под чип"]
-                    //             -for (var z=0; z<mainSub.length; z++)
-                    //                 li.header__menu-item.header__menu-item-sub
-                    //                     a(href="http://html.myapp.com.ua/vashkluch/subcategory.html" class="header__menu-item-sub-link header__menu-link")= mainSub[z]
         .header__main-list-wrapper
             .container
                 ul.header__main-list

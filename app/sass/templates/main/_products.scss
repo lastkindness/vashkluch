@@ -19,6 +19,12 @@
     justify-content: space-between;
     text-align: center;
     background-color: $elements;
+    @include respond-to(sm){
+      grid-template-columns: repeat(auto-fit, minmax(50%, 1fr));
+    }
+    @include respond-to(xs){
+      grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
   }
   &-li {
     margin: 0;
@@ -38,12 +44,19 @@
       @include anim;
       background-color: $darkElements;
     }
+    @include respond-to(tablet-1030){
+      padding: 5px;
+    }
   }
   &-link {
     color: $white;
     @include fm;
     font-size: 18px;
     line-height: 21px;
+    @include respond-to(xs){
+      font-size: 16px;
+      line-height: 18px;
+    }
   }
   &-item {
     &.catalog__grid {
@@ -52,14 +65,28 @@
       justify-content: flex-start;
       flex-wrap: wrap;
       margin: 0 -10px;
+      //padding-bottom: 15px;
       //padding: 0 63px;
       .product-item {
         width: calc(25% - 20px);
         margin: 0 10px 20px;
+        @include respond-to(lg){
+          width: calc(33.3% - 20px);
+        }
+        @include respond-to(tablet-1030){
+          width: 100%;
+          margin: 0 0 20px;
+        }
+        @include respond-to(xs){
+          flex-wrap: wrap;
+        }
       }
       &.slick-slider {
         .slick-list {
           margin: 0 -10px;
+          @include respond-to(md){
+            margin: 0;
+          }
         }
         .product-item {
           margin-top: 0;
@@ -75,6 +102,14 @@
     &.catalog__grid {
       .product-item {
         width: calc(20% - 20px);
+        @include respond-to(lg-1200){
+          width: calc(25% - 20px);
+        }
+        &__wrapper {
+          @include respond-to(tablet-1030){
+            width: 100%;
+          }
+        }
       }
     }
   }

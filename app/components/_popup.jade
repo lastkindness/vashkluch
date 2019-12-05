@@ -71,6 +71,23 @@ include _button
             .content Ваше сообщение отправлено успешно!
         .close-btn.icon.icon-close
 
+    .popup.popup__phone(data-target="popup-phone")
+        .popup-header
+            .subtitle Контакты
+        .popup-content
+            .header__phone
+                a(href="tel:+380487001717" class="header__phone-link")
+                    .icon.icon-phone
+                    | +38 (048)
+                    span 700 17 17
+                a(href="tel:+380674841450" class="header__phone-link")
+                    .icon.icon-phone
+                    | +38 (067)
+                    span 484 14 50
+                .header__phone-subtitle
+                    span Работаем круглосуточно
+        .close-btn.icon.icon-close
+
     .popup.popup__mail(data-target="popup-pass-recover")
         .popup-header
             .subtitle Забыли пароль?

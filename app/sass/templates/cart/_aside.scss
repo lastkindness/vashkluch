@@ -5,6 +5,14 @@
   flex-direction: column;
   align-items: stretch;
   justify-content: flex-start;
+  @include respond-to(lg){
+    width: calc(27% - 10px);
+  }
+  @include respond-to(lg-1200){
+    width: 100%;
+    order: 0;
+    margin-bottom: 30px;
+  }
   &-title {
     text-align: center;
     background-color: $elements;
@@ -22,6 +30,10 @@
     flex-grow: 1;
     max-height: 500px;
     padding: 55px 50px;
+    @include respond-to(lg){
+      padding: 30px 20px;
+      max-height: 400px;
+    }
     .title,
     .total {
       text-align: center;
@@ -48,6 +60,7 @@
     }
   }
   &-total {
+    margin-top: 15px;
     &-value {
       margin-bottom: 15px;
     }
@@ -75,6 +88,9 @@
     margin-bottom: 0;
     width: 50%;
     background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     @include anim;
     span {
       color: $white;

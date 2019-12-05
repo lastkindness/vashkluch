@@ -33,6 +33,18 @@
     line-height: 0;
     font-size: 0;
     width: 10%;
+    @include respond-to(lg-1200){
+      width: 12%;
+    }
+    @include respond-to(md){
+      width: 14%;
+    }
+    @include respond-to(xs-690){
+      width: 20%;
+    }
+    @include respond-to(xs){
+      width: 33.3%;
+    }
   }
   &__link {
     padding: 5px 10px;
@@ -76,6 +88,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+  .back {
+    display: none;
   }
 }
 //brands end

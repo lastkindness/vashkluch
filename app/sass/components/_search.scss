@@ -12,8 +12,8 @@
       color: $text;
       @include anim;
     }
-    @include respond-to(xs-600) {
-      padding: 15px 20px 15px 45px;
+    @include respond-to(sm){
+      padding: 10px;
     }
     &-container {
       border: 1px solid $lines;
@@ -44,6 +44,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @include respond-to(sm){
+      padding: 10px;
+    }
     span {
       color: $text;
     }
