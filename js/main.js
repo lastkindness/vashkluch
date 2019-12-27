@@ -1574,6 +1574,121 @@
         });
     });
 
+    /*---------------- Инициализация фильтра -----------------*/
+    $(document).on("click", "[data-filter]", function () {
+        generateFilterUrl($(this).attr("data-filter"), $(this).attr("type"));
+        return false;
+    });
+    $(document).on("click", "[data-price]", function () {
+        var priceMin = parseFloat($("[name*='min']").val());
+        var priceMax = parseFloat($("[name*='max']").val());
+        generateFilterUrl('price='+priceMin+'-'+priceMax);
+        return false;
+    });
+    /*---------------- Инициализация фильтра -----------------*/
+
+    /*---------------- Генератор URL фильтра -----------------*/
+    function generateFilterUrl(filter, type) {
+        if (type === undefined) {
+            type = 'checkbox';
+        }
+        var newFilters = [];
+        var searchFilter = true;
+        // Текущий урл
+        var _url   = window.location.pathname;
+        var _get   = window.location.search;
+        var regex  = /\/f\/(.*)/i;
+        // Текущие фильтры
+        _filterUrl = _url.match(regex);
+        if (_filterUrl) {
+            // Переданный фильтр
+            var filter = filter.split("=");
+            _filterArr = _filterUrl[0].split('/');
+            // Список текущих фильтров
+            _filters   = _filterArr[2].split(';');
+            for (var i = 0; i < _filters.length; i++) {
+                // Если текущий фильтр совпал с переданным, добавляем или заменяем значение
+                var _filter = _filters[i].split("=");
+                if (filter[0] == _filter[0]) {
+                    searchFilter = false;
+                    _values = _filter[1].split(',');
+                    // Проверить существует ли значение в массиве
+                    _index = _values.indexOf(filter[1]);
+                    if (_index != -1) {
+                        _values.splice(_index, 1);
+                    } else {
+                        _values.push(filter[1]);
+                    }
+                    // Если тип радио, всё равно удаляем значение
+                    if (type == 'radio') {
+                        _values = [];
+                        _values.push(filter[1]);
+                    }
+                    // Если цена, всё равно удаляем значение
+                    if (filter[0] == 'price') {
+                        _values = [];
+                        _values.push(filter[1]);
+                    }
+                    // Если в массиве что то осталось
+                    if (_values.length > 0) {
+                        _values.sort();
+                        _filter[1]  = $.unique(_values).join(',');
+                        _filters[i] = _filter.join('=');
+                        newFilters.push(_filters[i]);
+                    }
+                } else {
+                    newFilters.push(_filters[i]);
+                }
+            }
+            // Если текущий фильтр не совпал ни с одним из существующих
+            if (searchFilter) {
+                newFilters.push(filter.join('='));
+            }
+            // Если есть хоть какие то фильтры
+            if (newFilters.length > 0) {
+                newFilters.sort();
+                var _newUrl = _url.slice(0, -_filterUrl[0].length)+'/f/'+newFilters.join(';')+'/';
+            } else {
+                var _newUrl = _url.slice(0, -_filterUrl[0].length)+'/';
+            }
+        } else {
+            var _newUrl = _url+'f/'+filter+'/';
+        }
+        if($(window).width() > 1030) {
+            if (_get.length > 0) {
+                window.location.href = _newUrl+_get;
+            } else {
+                window.location.href = _newUrl;
+            }
+        } else {
+            if (_get.length > 0) {
+                history.pushState(null, null, _newUrl+_get);
+            } else {
+                history.pushState(null, null, _newUrl);
+            }
+            return false;
+        }
+
+    }
+    /*---------------- Генератор URL фильтра -----------------*/
+
+
+    /*----------------- Форматирование цены ------------------*///
+    function priceFormat(n) {
+
+        /* Фикс округления в JS */
+        n = n * 100;
+        n = n.toFixed(2);
+        n = Math.round(n);
+        n = n / 100;
+        /* Фикс округления в JS */
+        console.log(n);
+        return n.toFixed(0).replace(/./g, function (c, i, a) {
+            return i && c !== "." && ((a.length - i) % 3 === 0) ? "&nbsp;" + c : c;
+        });
+    }
+    /*----------------- Форматирование цены ------------------*///
+
     $(document).ready(function() {
         if ($('.preloader').length) {
             setTimeout(function () {
