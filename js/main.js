@@ -153,6 +153,15 @@
     });
     /*Function for go to top end*/
 
+    $(window).load(function () {
+        [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
+            img.setAttribute('src', img.getAttribute('data-src'));
+            img.onload = function() {
+                img.removeAttribute('data-src');
+            };
+        });
+    });
+
     /*Function for link scroll*/
     $(document).ready(function() {
         $("a.scrollto").click(function() {
@@ -1504,33 +1513,37 @@
     /*Cut string end*/
 
     // elevateZoom start
-    function elevateZoom () {
-        if ($(window).width() > 1030) {
-            $('.gallery-images .slick-active img').elevateZoom({
-                zoomType: "window",
-                scrollZoom: "true",
-                cursor: "crosshair",
-                zoomLevel: 0.5
+    $(document).ready(function() {
+        function elevateZoom () {
+            if ($(window).width() > 1030) {
+                $('.gallery-images .slick-active img').elevateZoom({
+                    zoomType: "window",
+                    scrollZoom: "true",
+                    cursor: "crosshair",
+                    zoomLevel: 0.5
+                });
+            }
+        }
+
+        if($('.card__image_loupe').length) {
+            $('.gallery-images .slick-active img').removeData('elevateZoom');
+            $('.zoomContainer').remove();
+            elevateZoom ();
+            $('.card__image_slider-small-slide').on('click', function(event){
+                event.preventDefault();
+                $('.gallery-images .slick-active img').removeData('elevateZoom');
+                $('.zoomContainer').remove();
+                elevateZoom ();
+            });
+
+            $('.card__image_loupe .slick-arrow').on('click', function(event){
+                event.preventDefault();
+                $('.gallery-images .slick-active img').removeData('elevateZoom');
+                $('.zoomContainer').remove();
+                elevateZoom ();
             });
         }
-    }
-
-    if($('.card__image_loupe').length) {
-        elevateZoom ();
-        $('.card__image_slider-small-slide').on('click', function(event){
-            event.preventDefault();
-            $('.gallery-images .slick-active img').removeData('elevateZoom');
-            $('.zoomContainer').remove();
-            elevateZoom ();
-        });
-
-        $('.card__image_loupe .slick-arrow').on('click', function(event){
-            event.preventDefault();
-            $('.gallery-images .slick-active img').removeData('elevateZoom');
-            $('.zoomContainer').remove();
-            elevateZoom ();
-        });
-    }
+    });
     // elevateZoom end
 
     // profile details start
@@ -1563,15 +1576,6 @@
             validateReset();
             return true;
         }
-    });
-
-    $(window).load(function () {
-        [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
-            img.setAttribute('src', img.getAttribute('data-src'));
-            img.onload = function() {
-                img.removeAttribute('data-src');
-            };
-        });
     });
 
     /*---------------- Инициализация фильтра -----------------*/
