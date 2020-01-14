@@ -192,6 +192,10 @@
                 btnDown = spinner.find('.input-number_arrow.prev'),
                 min = input.attr('min'),
                 max = input.attr('max');
+            spinner.click(function (e) {
+               e.stopPropagation();
+               e.preventDefault();
+            });
             btnUp.click(function(e) {
                 e.stopPropagation();
                 e.preventDefault();
@@ -235,6 +239,67 @@
     /* -------------------------------------------------------------------------
    begin Validation
    * ------------------------------------------------------------------------- */
+    $(document).ready(function () {
+
+        $(document).on("change", '.js_validate *[required]', function () {
+            $(this).each(function () {
+                var valid = validate($(document).find($(this)));
+                if (valid == false) {
+                    console.log("valid not passed");
+                    return false;
+                } else {
+                    console.log("valid passed");
+                }
+            });
+
+        });
+
+
+        $('.js_validate .btn[type="submit"]').on("click", function () {
+            var valid = validate($(document).find($(this).parents(".js_validate")));
+            if (valid == false) {
+                console.log("valid not passed");
+                return false;
+            } else {
+                console.log("valid passed");
+            }
+        });
+
+
+    });
+
+    function formatValidate(inputFile) {
+        function showMsg(massage) {
+            $($($($(inputFile)[0]).siblings(".text-error"))[0]).text(massage);
+            $(inputFile[0]).closest(".input-container__file").addClass("error");
+            return false;
+        }
+
+        var format = [".pdf", ".txt", ".doc", ".docx", ".rtf", ".odt"];
+        if ((inputFile)[0].files.length!=1) {
+            showMsg($($(inputFile)[0]).attr("data-error-existence"));
+            return false;
+        } else {
+            var file = (inputFile)[0].files;
+            var fileName = file[0].name;
+            if ((file[0].size/1024/1024) < 5) {
+                for (var i = 0; i < format.length; i++) {
+                    if (-1 !== fileName.indexOf(format[i])) {
+                        $($(inputFile)[0]).closest(".input-container__file").removeClass("error");
+                        $($(inputFile)[0]).closest(".input-container__file").addClass("pass");
+                        $($(inputFile)[0]).siblings(".text-error").text("");
+                        return true;
+                    } else {
+                        showMsg($($(inputFile)[0]).attr("data-error-type"));
+                    }
+                }
+            }
+            else {
+                showMsg($($(inputFile)[0]).attr("data-error-size"));
+            }
+        }
+    }
+
 
     function validate(form) {
         var error_class = "error";
@@ -242,30 +307,28 @@
         var item = form.find("[required]");
         var e = 0;
         var reg = undefined;
-        var pass = form.find('.password').val();
-        var pass_1 = form.find('.password_1').val();
+        var pass = $('.password').val();
+        var pass1 = $('.password_1').val();
+        var passold = $('.password_old').val();
         var email = false;
         var password = false;
         var password_1 = false;
-        var pasword_new = false;
+        var password_old = false;
         var phone = false;
         var undef = false;
         var date = false;
+        var number = false;
         var arr = [];
 
-        console.log("startValidate");
-
-
         function mark(object, expression, minSign, maxSign) {
-            console.log(object, object.closest('.input-container'));
             if (expression) {
-                object.closest('.input-container').addClass(error_class).removeClass(norma_class);
+                object.parent('div').addClass(error_class).removeClass(norma_class);
                 if (email) {
                     if (object.val().length > 0) {
                         if (object.val().length < 6) {
                             object.parent('div').find('.text-error').text(object.attr("data-error-min"));
                         }
-                        else if  (object.val().length > 31) {
+                        else if  (object.val().length > 37) {
                             object.parent('div').find('.text-error').text(object.attr("data-error-max"));
                         } else {
                             object.parent('div').find('.text-error').text(object.attr("data-error-wrong"));
@@ -274,146 +337,258 @@
                         object.parent('div').find('.text-error').text(object.attr("data-error-empty"));
                     }
                 }
+                if (password_old) {
+                    if (object.val().length > 0) {
+                        if (object.val().length < 6) {
+                            object.parent('div').find('.text-error').text(object.attr("data-error-min"));
+                        }
+                        else if  (object.val().length > 20) {
+                            object.parent('div').find('.text-error').text(object.attr("data-error-max"));
+                        }
+                        else {
+                            if(object.val()==pass||object.val()==pass1) {
+                                object.parent('div').find('.text-error').text(object.attr("data-error-wrong-old"));
+                            } else {
+                                object.parent('div').find('.text-error').text(object.attr("data-error-wrong"));
+                            }
+                        }
+                    } else {
+                        object.parent('div').find('.text-error').text(object.attr("data-error-empty"));
+                    }
+                }
                 if (password) {
                     if (object.val().length > 0) {
                         if (object.val().length < 6) {
-                            object.closest('.input-container').find('.text-error').text('Пароль: не менее 6 символов');
+                            object.parent('div').find('.text-error').text(object.attr("data-error-min"));
                         }
                         else if  (object.val().length > 20) {
-                            object.closest('.input-container').find('.text-error').text('Пароль: не более 20 символов');
+                            object.parent('div').find('.text-error').text(object.attr("data-error-max"));
                         }
                         else {
-                            object.closest('.input-container').find('.text-error').text(object.attr("data-error-wrong"));
+                            if(object.val()==passold) {
+                                object.parent('div').find('.text-error').text(object.attr("data-error-wrong-old"));
+                            } else if (object.val()!==pass1) {
+                                object.parent('div').find('.text-error').text(object.attr("data-error-wrong-new"));
+                            } else {
+                                object.parent('div').find('.text-error').text(object.attr("data-error-wrong"));
+                            }
                         }
                     } else {
-                        object.closest('.input-container').find('.text-error').text(object.attr("data-error-empty"));
+                        object.parent('div').find('.text-error').text(object.attr("data-error-empty"));
                     }
                 }
                 if (password_1) {
                     if (object.val().length > 0) {
                         if (object.val().length < 6) {
-                            object.closest('.input-container').find('.text-error').text('Пароль: не менее 6 символов');
+                            object.parent('div').find('.text-error').text(object.attr("data-error-min"));
                         }
                         else if  (object.val().length > 20) {
-                            object.closest('.input-container').find('.text-error').text('Пароль: не более 20 символов');
+                            object.parent('div').find('.text-error').text(object.attr("data-error-max"));
                         }
                         else {
-                            object.closest('.input-container').find('.text-error').text(object.attr("data-error-wrong"));
+                            if(object.val()==passold) {
+                                object.parent('div').find('.text-error').text(object.attr("data-error-wrong-old"));
+                            }  else if (object.val()!==pass) {
+                                object.parent('div').find('.text-error').text(object.attr("data-error-wrong-new"));
+                            } else {
+                                object.parent('div').find('.text-error').text(object.attr("data-error-wrong"));
+                            }
                         }
                     } else {
-                        object.closest('.input-container').find('.text-error').text(object.attr("data-error-empty"));
-                    }
-                }
-                if (pasword_new) {
-                    var remPopup = object.closest('.input-container').closest(".popup__remind");
-                    if (remPopup.length) {
-                        if (remPopup.find(".pasword-old").val()==remPopup.find(".pasword_new").val()&&remPopup.find(".pasword_new").val()!="") {
-                            remPopup.find(".pasword_new").closest(".input-container").addClass(error_class).removeClass(norma_class);
-                            remPopup.find(".pasword_new").siblings('.text-error').text('Старый и новый пароль совападают. Придумайте новый пароль!');
-                        }
+                        object.parent('div').find('.text-error').text(object.attr("data-error-empty"));
                     }
                 }
                 if (phone) {
                     if (object.val().length != 17) {
-                        object.closest('.input-container').find('.text-error').text(object.attr("data-error-empty"));
+                        object.parent('div').find('.text-error').text(object.attr("data-error-empty"));
                     } else {
-                        object.closest('.input-container').find('.text-error').text(object.attr("data-error-wrong"));
+                        object.parent('div').find('.text-error').text(object.attr("data-error-wrong"));
                     }
                 }
                 if (date) {
                     if (object.val().length != 4) {
-                        object.closest('.input-container').find('.text-error').text(object.attr("data-error-empty"));
+                        object.parent('div').find('.text-error').text(object.attr("data-error-empty"));
                     } else {
-                        object.closest('.input-container').find('.text-error').text(object.attr("data-error-wrong"));
+                        object.parent('div').find('.text-error').text(object.attr("data-error-wrong"));
+                    }
+                }
+                if (number) {
+                    if (object.val().length < 4 ||object.val().length > 100) {
+                        object.parent('div').find('.text-error').text(object.attr("data-error-empty"));
+                    } else {
+                        object.parent('div').find('.text-error').text(object.attr("data-error-wrong"));
                     }
                 }
                 if (undef) {
                     if (object.val().length > 0) {
                         if (object.val().length > minSign && object.val().length < maxSign) {
-                            object.closest('.input-container').find('.text-error').text(object.attr("data-error-wrong"));
+                            object.parent('div').find('.text-error').text(object.attr("data-error-wrong"));
                         } else {
-                            object.closest('.input-container').find('.text-error').text('Введите колличество символов (2-100)');
+                            object.parent('div').find('.text-error').text('Введите колличество символов (2-100)');
                         }
                     } else {
-                        object.closest('.input-container').find('.text-error').text(object.attr("data-error-empty"));
+                        object.parent('div').find('.text-error').text(object.attr("data-error-empty"));
                     }
                 }
                 e++;
-            }
-            else {
-                object.closest('.input-container').addClass(norma_class).removeClass(error_class);
-                e = 0;
+            } else {
+                if($(object[0]).hasClass("select")) {
+                    if($(object[0]).prop("selectedIndex")!=0) {
+                        object.parent('div').addClass(norma_class).removeClass(error_class);
+                        e = 0;
+                    } else {
+                        object.parent('div').addClass(error_class).removeClass(norma_class);
+                        e = 0;
+                    }
+                } else {
+                    object.parent('div').addClass(norma_class).removeClass(error_class);
+                    e = 0;
+                }
             }
             arr.push(expression);
         }
 
-        form.find("[required]").each(function () {
-            var minSign = $(this).attr("data-minsign");
-            var maxSign = $(this).attr("data-maxsign");
-            switch ($(this).attr("data-validate")) {
+        if(form.hasClass('js_validate')) {
+            var field = form.find("[required]"),
+                select = form.find('.js_valid_select'),
+                radio = form.find('.js_valid_radio'),
+                file = form.find('.input-container__file'),
+                checkbox = form.find('.js_valid_checkbox');
+            field.each(function () {
+                var dataValidate = $(this).attr("data-validate");
+                caseDataValidate(dataValidate, $(this));
+            });
+            select.each(function () {
+                validSelect($(this).find('select option'));
+            });
+            radio.each(function () {
+                validRadio($(this).find('input[type="radio"]'));
+            });
+            checkbox.each(function () {
+                validCheckbox($(this).find('input[type="checkbox"]'));
+            });
+            file.each(function () {
+                validFile($(this).find('input[type="file"]'));
+            });
+        } else {
+            var dataValidate =  form.attr("data-validate"),
+                inputContainer = form.closest('.input-container'),
+                field = form,
+                select = inputContainer.find('select option'),
+                radio = inputContainer.find('input[type="radio"]'),
+                file = inputContainer.find('input[type="file"]'),
+                checkbox = inputContainer.find('input[type="checkbox"]');
+            if(inputContainer.hasClass('js_valid_select')) {
+                validSelect(select);
+            }
+            else if(inputContainer.hasClass('js_valid_radio')) {
+                validRadio(radio);
+            }
+            else if(inputContainer.hasClass('js_valid_checkbox')) {
+                validCheckbox(checkbox);
+            }
+            else if(inputContainer.hasClass('input-container__file')) {
+                validFile(file);
+            }
+            else {
+                caseDataValidate(dataValidate, field);
+            }
+        }
+
+        function caseDataValidate(dataValidate, fieldIn) {
+            var minSign = fieldIn.attr("data-minsign");
+            var maxSign = fieldIn.attr("data-maxsign");
+            switch (dataValidate) {
                 case "text":
-                    reg = new RegExp('^[/-?!()",.а-яА-ЯёЁa-zA-Z_0-9 ]{'+minSign+','+maxSign+'}$');
+                    reg = new RegExp('^[\/\'"?!,.А-Яа-яёЁЇїІіЄєҐґa-zA-Z_0-9 -]{'+minSign+','+maxSign+'}$');
                     undef = true;
-                    mark($(this), !reg.test($.trim($(this).val())), minSign, maxSign);
+                    mark(fieldIn, !reg.test($.trim(fieldIn.val())), minSign, maxSign);
                     undef = false;
-                    //mark($(this), $.trim($(this).val()).length === 0);
                     break;
                 case "date":
                     reg = /^\d{2,10}[,.]?\d{2,10}[,.]?\d{2,10}$/;
-                    undef = true;
-                    mark($(this), !reg.test($.trim($(this).val())));
-                    undef = false;
+                    date = true;
+                    mark(fieldIn, !reg.test($.trim(fieldIn.val())));
+                    date = false;
+                    break;
+                case "number":
+                    reg = new RegExp('^[0-9]{'+minSign+','+maxSign+'}$');
+                    number = true;
+                    mark(fieldIn, !reg.test($.trim(fieldIn.val())));
+                    number = false;
                     break;
                 case "email":
-                    reg = /^([A-Za-z0-9_\-\.]{1,10})+\@([A-Za-z0-9_\-\.]{1,10})+\.([A-Za-z]{2,10})$/;
+                    reg = /^([A-Za-z0-9_\-\.]{1,15})+\@([A-Za-z0-9_\-\.]{1,10})+\.([A-Za-z]{2,10})$/;
                     email = true;
-                    if($.trim($(this).val()).length>31) {
-                        mark($(this), true);
+                    if($.trim(fieldIn.val()).length>37) {
+                        mark(fieldIn, true);
                     } else {
-                        mark($(this), !reg.test($.trim($(this).val())));
+                        mark(fieldIn, !reg.test($.trim(fieldIn.val())));
                     }
                     email = false;
                     break;
                 case "phone":
                     phone = true;
                     reg = /[0-9-()+]{17}$/;
-                    mark($(this), !reg.test($.trim($(this).val())));
+                    mark(fieldIn, !reg.test($.trim(fieldIn.val())));
                     phone = false;
+                    break;
+                case "passold":
+                    password_old = true;
+                    reg = /^[a-zA-Z0-9!#@_\-|]{6,20}$/;
+                    mark(fieldIn, (passold==pass||!reg.test($.trim(fieldIn.val()))||passold==pass1));
+                    password_old = false;
                     break;
                 case "pass":
                     password = true;
-                    pasword_new = true;
-                    reg = /^[a-zA-Z0-9_-]{6,20}$/;
-                    mark($(this), !reg.test($.trim($(this).val())));
+                    reg = /^[a-zA-Z0-9!#@_\-|]{6,20}$/;
+                    mark(fieldIn, (pass1 !== pass||!reg.test($.trim(fieldIn.val()))||passold==pass));
                     password = false;
                     break;
-                case "select2":
-                    if ($(this).val()!=null) {
-                        mark($(this), false);
-                        break;
-                    } else {
-                        mark($(this), true);
-                        break;
-                    };
                 case "pass1":
                     password_1 = true;
-                    reg = /^[a-zA-Z0-9_-]{6,20}$/;
-                    mark($(this), (pass_1 !== pass||!reg.test($.trim($(this).val()))));
+                    reg = /^[a-zA-Z0-9!#@_\-|]{6,20}$/;
+                    mark(fieldIn, (pass1 !== pass||!reg.test($.trim(fieldIn.val()))||passold == pass1));
                     password_1 = false;
                     break;
                 case "file":
-                    if ($(this).closest(".row-file-input").hasClass("error")) {
+                    formatValidate(fieldIn);
+                case "select2":
+                    if (fieldIn.val()!=null||fieldIn.val()!=undefined||fieldIn.val()!="0") {
+                        mark(fieldIn, false);
                         break;
-                    }
+                    } else {
+                        mark(fieldIn, true);
+                        break;
+                    };
                 default:
-                    reg = new RegExp($(this).attr("data-validate"), "g");
-                    mark($(this), !reg.test($.trim($(this).val())));
+                    reg = new RegExp(fieldIn.attr("data-validate"), "g");
+                    mark(fieldIn, !reg.test($.trim(fieldIn.val())));
                     break;
             }
-        });
+        }
 
-        form.find('.js_valid_radio').each(function () {
-            var inp = $(this).find('input.required');
+// js_valid_select
+        function validSelect(inp) {
+            var rezalt = 0;
+            for (var i = 1; i < inp.length; i++) {
+                if ($(inp[i]).is('selected') === true||$(inp[i]).prop('selected') === true) {
+                    rezalt = 1;
+                    break;
+                } else {
+                    rezalt = 0;
+                }
+            }
+            if (rezalt === 0) {
+                inp.closest('.input-container').addClass(error_class).removeClass(norma_class);
+                e = 1;
+            } else {
+                inp.closest('.input-container').addClass(norma_class).removeClass(error_class);
+            }
+        };
+
+// js_valid_radio
+        function validRadio(inp) {
             var rezalt = 0;
             for (var i = 0; i < inp.length; i++) {
                 if ($(inp[i]).is(':checked') === true) {
@@ -424,10 +599,63 @@
                 }
             }
             if (rezalt === 0) {
-                $(this).addClass(error_class).removeClass(norma_class);
+                inp.closest('.input-container').addClass(error_class).removeClass(norma_class);
                 e = 1;
             } else {
+                inp.closest('.input-container').addClass(norma_class).removeClass(error_class);
+            }
+        };
+// js_valid_checkbox
+        function validCheckbox(inp) {
+            var rezalt = 0;
+            for (var i = 0; i < inp.length; i++) {
+                if ($(inp[i]).is(':checked') === true) {
+                    rezalt = 1;
+                    break;
+                } else {
+                    rezalt = 0;
+                }
+            }
+            if (rezalt === 0) {
+                inp.closest('.input-container').addClass(error_class).removeClass(norma_class);
+                e = 1;
+            } else {
+                inp.closest('.input-container').addClass(norma_class).removeClass(error_class);
+            }
+        };
+
+// js_valid_file
+        function validFile(inp) {
+            var rezalt = 0;
+            for (var i = 0; i < inp.length; i++) {
+                if (formatValidate(inp) == true) {
+                    rezalt = 1;
+                    break;
+                } else {
+                    rezalt = 0;
+                }
+            }
+            if (rezalt === 0) {
+                inp.closest('.input-container').addClass(error_class).removeClass(norma_class);
+                e = 1;
+            } else {
+                inp.closest('.input-container').addClass(norma_class).removeClass(error_class);
+            }
+        };
+// js_valid_rating
+        form.find('.js-rating').each(function (indx, rating) {
+            var i = 0;
+            $(rating).find(".star").each(function (indx, star) {
+                if($(star).hasClass("active")) {
+                    i++;
+                } else {
+                }
+            });
+            if (i>0) {
                 $(this).addClass(norma_class).removeClass(error_class);
+            } else {
+                $(rating).addClass(error_class).removeClass(norma_class);
+                e = 1;
             }
         });
 
@@ -459,37 +687,22 @@
         validateReset();
     });
 
-    $(document).on("change", '.js_validate *[required]', function () {
-        $(this).each(function () {
-            var valid = validate($(document).find($(this).parents(".js_validate")));
-            if (valid == false) {
-                console.log("valid not passed");
-                return false;
-            } else {
-                console.log("valid passed1");
-                return true;
-            }
-        });
-
-    });
-
-
-    $(document).on("click", '.js_validate .btn[type="submit"], .js_click_form', function () {
-        var valid = validate($(document).find($(this).parents(".js_validate")));
-        if (valid == false) {
-            console.log("valid not passed");
-            return false;
+    $('.input-container .delete').click(function() {
+        var error_class = "error";
+        var inp = $(this).siblings('input');
+        var label = $(this).siblings('label');
+        inp.val('');
+        inp.parent('.input-container').removeClass(error_class);
+        inp.parent('.input-container').removeClass("filled");
+        if(inp[0].hasAttribute("data-error-existence")) {
+            label.text(inp.attr("data-error-existence"));
         } else {
-            console.log("valid passed");
-            return true;
         }
     });
 
     /* -------------------------------------------------------------------------
      end Validation
      * ------------------------------------------------------------------------- */
-
-    console.log("endValidate");
 
     //compare-category__reset
     if ($(".compare-category__table").length) {
@@ -627,21 +840,45 @@
     if ($(".product-item").length && $(window).width() >= 1030) {
         $(".product-item").addClass("additional");
 
-        $(".product-item").on('mouseenter', function (e) {
-            if($(window).outerWidth() - ($(this).offset().left + $(this).width()) >= 320) {
-                $(this).removeClass("additional-left");
-            } else {
-                $(this).addClass("additional-left");
-            }
-            $(this).removeClass("additional");
+        // $(".product-item").on('mouseenter', function (e) {
+        //     if($(window).outerWidth() - ($(this).offset().left + $(this).width()) >= 320) {
+        //         $(this).removeClass("additional-left");
+        //     } else {
+        //         $(this).addClass("additional-left");
+        //     }
+        //     $(this).removeClass("additional");
+        // });
+        // $(".product-item").on('mouseleave', function (e) {
+        //     if($(window).outerWidth() - ($(this).offset().left + $(this).width()) >= 320) {
+        //         $(this).removeClass("additional-left");
+        //     } else {
+        //         $(this).addClass("additional-left");
+        //     }
+        //     $(this).addClass("additional");
+        // });
+
+        $(".product-item__wrapper,.product-item__additional").on('mouseenter', function (e) {
+            var thisItem = $(this).closest(".product-item");
+            setTimeout(function () {
+                if($(window).outerWidth() - (thisItem.offset().left + thisItem.width()) >= 320) {
+                    thisItem.removeClass("additional-left");
+                } else {
+                    thisItem.addClass("additional-left");
+                }
+                thisItem.removeClass("additional");
+            }, 300);
         });
-        $(".product-item").on('mouseleave', function (e) {
-            if($(window).outerWidth() - ($(this).offset().left + $(this).width()) >= 320) {
-                $(this).removeClass("additional-left");
-            } else {
-                $(this).addClass("additional-left");
-            }
-            $(this).addClass("additional");
+        $(".product-item__wrapper,.product-item__additional").on('mouseleave', function (e) {
+            var thisItem = $(this).closest(".product-item");
+            setTimeout(function () {
+                if($(window).outerWidth() - (thisItem.offset().left + thisItem.width()) >= 320) {
+                    thisItem.removeClass("additional-left");
+                } else {
+                    thisItem.addClass("additional-left");
+                }
+                thisItem.addClass("additional");
+                return false;
+            }, 300);
         });
     }
 
@@ -1216,6 +1453,11 @@
         e.preventDefault();
         $('.popup-overlay').fadeIn(300);
         $('.popup[data-target="popup-phone"]').fadeIn(300);
+    });
+    $('.btn[data-target="recover"]').on("click", function (e) {
+        e.preventDefault();
+        $('.popup-overlay').fadeIn(300);
+        $('.popup[data-target="popup-recover"]').fadeIn(300);
     });
 
 

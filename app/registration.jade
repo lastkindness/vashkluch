@@ -32,7 +32,9 @@ html
                       label.req(for='password-enter') Пароль
                       input#password-enter.validate(type='password', name='password-enter', required='required', data-validate='pass', data-error-wrong='Поле заполнено не верно', data-error-empty='Поле не заполнено', data-error-min='Пароль: не менее 6 символов', data-error-max='Пароль: не более 20 символов')
                       .text-error Поле не заполнено
-                  input.btn(value='Войти', type='submit')
+                  .registration__section-btn
+                    button.btn.btn-link(data-target='recover') Забыли пароль?
+                    input.btn(value='Войти', type='submit')
             .tub_body(style='display: none;')
               .registration__title Регистрация
               .registration__wrapper

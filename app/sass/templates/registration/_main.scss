@@ -67,4 +67,19 @@
       }
     }
   }
+  &__section {
+    &-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      .btn-link {
+        padding: 0 !important;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
 }

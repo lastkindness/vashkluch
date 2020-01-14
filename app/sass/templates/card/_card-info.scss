@@ -94,7 +94,7 @@
       width: 33.3%;
       background-color: $white;
       border-left: 1px solid $elements;
-      padding: 50px 30px 20px 30px;
+      padding: 50px 30px 35px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -331,6 +331,11 @@
         input {
           height: 100%;
           padding: 10px 5px;
+        }
+        .text-error {
+          @include respond-to(lg-1200){
+            top: calc(100% + 35px);
+          }
         }
       }
       .btn {

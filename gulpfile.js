@@ -72,7 +72,7 @@ gulp.task('iconfont', function(){
         }))
         .pipe(iconfont({
             fontName: fontName,
-            formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
+            formats: ['ttf', 'eot', 'woff', 'svg'],
             normalize:true,
             fontHeight: 1001,
             centerHorizontally: true
