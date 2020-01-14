@@ -372,7 +372,13 @@
         display: none;
         //padding: 5px 0 !important;
         padding: 0 !important;
-        @include respond-to(sm){
+        @include respond-to(lg){
+          width: 325px;
+        }
+        @include respond-to(lg-1360){
+          width: 300px;
+        }
+        @include respond-to(lg-1200){
           width: 250px;
         }
         .back {
@@ -415,6 +421,14 @@
         &>.header__menu-list-sub {
           left: 100%;
           top: 0;
+          @include respond-to(tablet-1030){
+            left: 0;
+            top: 100%;
+          }
+          @include respond-to(xs-690){
+            left: 100%;
+            top: 0;
+          }
         }
         &.drop {
           align-items: center;
@@ -581,7 +595,7 @@
       }
     }
     &-location {
-      width: 10%;
+      width: 12%;
       @include respond-to(md){
         width: 15%;
       }

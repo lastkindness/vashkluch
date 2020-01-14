@@ -881,18 +881,18 @@
                     <form class="profile-details__form js_validate">
                       <div class="subtitle">Смена пароля</div>
                       <div class="input-container">
-                        <label for="passwordOld" class="req">Действующий пароль (не заполняйте, чтобы оставить прежний)</label>
-                        <input id="passwordOld" type="password" name="passwordOld" required="required" data-validate="pass" data-error-wrong="Поле заполнено не верно" data-error-empty="Поле не заполнено" data-error-min="Пароль: не менее 6 символов" data-error-max="Пароль: не более 20 символов" class="validate password">
+                        <label for="password" class="req">Старый пароль</label>
+                        <input id="password" type="password" name="password" required="required" data-validate="passold" data-error-wrong-back="Не совпадение с действующим паролем" data-error-wrong-old="Старый и новый пароль совападают. Придумайте другой!" data-error-wrong="Поле заполнено не верно" data-error-empty="Поле не заполнено" data-error-min="Пароль: не менее 6 символов" data-error-max="Пароль: не более 20 символов" class="validate password_old">
                         <div class="text-error">Поле не заполнено</div>
                       </div>
                       <div class="input-container">
-                        <label for="password" class="req">Новый пароль (не заполняйте, чтобы оставить прежний)</label>
-                        <input id="password" type="password" name="password" required="required" data-validate="pass" data-error-wrong="Поле заполнено не верно" data-error-empty="Поле не заполнено" data-error-min="Пароль: не менее 6 символов" data-error-max="Пароль: не более 20 символов" class="validate password">
+                        <label for="password2" class="req">Новый пароль</label>
+                        <input id="password2" type="password" name="password" required="required" data-validate="pass" data-error-wrong-old="Старый и новый пароль совападают. Придумайте другой!" data-error-wrong-new="Новый пароль и подтверждение не совпадают" data-error-wrong="Поле заполнено не верно" data-error-empty="Поле не заполнено" data-error-min="Пароль: не менее 6 символов" data-error-max="Пароль: не более 20 символов" class="validate password_new password">
                         <div class="text-error">Поле не заполнено</div>
                       </div>
                       <div class="input-container">
-                        <label for="password" class="req">Подтвердите новый пароль</label>
-                        <input id="password2" type="password" name="password2" required="required" data-validate="pass1" data-error-wrong="Пароли не совпадают" data-error-empty="Поле не заполнено" data-error-min="Пароль: не менее 6 символов" data-error-max="Пароль: не более 20 символов" class="validate password_1">
+                        <label for="password3" class="req">Повторите новый пароль</label>
+                        <input id="password3" type="password" name="password" required="required" data-validate="pass1" data-error-wrong-old="Старый и новый пароль совападают. Придумайте другой!" data-error-wrong-new="Новый пароль и подтверждение не совпадают" data-error-wrong="Поле заполнено не верно" data-error-empty="Поле не заполнено" data-error-min="Пароль: не менее 6 символов" data-error-max="Пароль: не более 20 символов" class="validate password_new password_1">
                         <div class="text-error">Поле не заполнено</div>
                       </div>
                       <input value="Сохранить изменения" type="submit" class="btn">
@@ -1047,7 +1047,7 @@
           </div>
           <div class="close-btn icon icon-close"></div>
         </div>
-        <div data-target="popup-pass-recover" class="popup popup__mail">
+        <div data-target="popup-recover" class="popup popup__mail">
           <div class="popup-header">
             <div class="subtitle">Забыли пароль?</div>
           </div>
