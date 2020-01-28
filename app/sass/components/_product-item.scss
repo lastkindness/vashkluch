@@ -443,6 +443,19 @@
           transform: translateY(-50%);
         }
       }
+      &_false {
+        display: flex;
+        div,
+        span {
+          color: $attention !important;
+          width: auto;
+          display: inline;
+          padding: 0 !important;
+        }
+        .icon-check {
+          display: none;
+        }
+      }
     }
     &-buttons {
       .btn {
