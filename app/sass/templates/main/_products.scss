@@ -69,10 +69,10 @@
       //padding-bottom: 15px;
       //padding: 0 63px;
       .product-item {
-        width: calc(25% - 20px);
+        width: calc(20% - 20px);
         margin: 0 10px 20px;
         @include respond-to(lg){
-          width: calc(33.3% - 20px);
+          width: calc(25% - 20px);
         }
         @include respond-to(tablet-1030){
           width: 100%;

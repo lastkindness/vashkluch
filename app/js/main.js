@@ -133,8 +133,10 @@
     //     }
     // });
 
-    $(window).on('resize', function () {
-
+    $(document).ready(function(){
+        setTimeout(function(){
+            window.scrollTo(0, 0);
+        }, 1);
     });
     $(window).scroll(function () {
         var top = $(document).scrollTop();
@@ -165,6 +167,19 @@
         });
     });
     /*Function for link scroll*/
+
+    function elevateZoom () {
+        if ($(window).width() > 1030) {
+            $($('.gallery-images .slick-active img')[0]).elevateZoom({
+                zoomType: "window",
+                scrollZoom: "true",
+                cursor: "crosshair",
+                zoomLevel: 0.5,
+                zoomWindowHeight:650,
+                zoomWindowWidth:650
+            });
+        }
+    }
 
     /*Function for same height*/
     function heightBlock() {
@@ -1888,16 +1903,6 @@
 
     // elevateZoom start
     $(document).ready(function() {
-        function elevateZoom () {
-            if ($(window).width() > 1030) {
-                $($('.gallery-images .slick-active img')[0]).elevateZoom({
-                    zoomType: "window",
-                    scrollZoom: "true",
-                    cursor: "crosshair",
-                    zoomLevel: 0.5
-                });
-            }
-        }
 
     if($('.card__image_loupe').length) {
         elevateZoom ();

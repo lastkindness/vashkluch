@@ -1,4 +1,4 @@
-mixin dropdown(classItem, text, tag, idItem)
+mixin dropdown(classItem, text, tag, idItem, icon)
     -if (classItem=="dropdown_native")
         .dropdown.dropdown_native
             .dropdown__wrapper.js__dropdown
@@ -12,6 +12,20 @@ mixin dropdown(classItem, text, tag, idItem)
                     - for (var i = 0; i < text.length; i++)
                         li.dropdown__item
                             span.dropdown__text= text[i]
+    -else if (classItem=="dropdown_image")
+        .dropdown.dropdown_native
+            .dropdown__wrapper.js__dropdown
+                -if (tag != "" || tag != undefined)
+                    span= tag
+                - else
+                    - console.log("tag ========> " + tag);
+                .dropdown__header.icon.icon-arr
+                    span.dropdown__header-item= text[0]
+                ul.dropdown__dropdown(style='display: none;')
+                    - for (var i = 0; i < text.length; i++)
+                        li.dropdown__item
+                            span.dropdown__text= text[i]
+                            img.dropdown__img(src="images/content-icons/"+icon[i] alt=text[i] title=text[i])
     -else if (classItem=="dropdown_select")
         .dropdown.dropdown_select
             .dropdown__wrapper

@@ -43,7 +43,10 @@
     }
   }
   &__filter {
-    width: 25%;
+    width: 20%;
+    @include respond-to(lg){
+      width: 25%;
+    }
     @include respond-to(lg-1200){
       width: 35%
     }
@@ -65,7 +68,10 @@
 .catalog-page {
   .catalog {
     &__grid {
-      width: calc(75% - 0px);
+      width: calc(80% - 0px);
+      @include respond-to(lg){
+        width: calc(75% - 0px);
+      }
       @include respond-to(lg-1200){
         margin: 0;
       }
@@ -75,10 +81,12 @@
       }
       &.main-products-item {
         .product-item {
-          width: calc(33.3% - 20px);
+          width: calc(20% - 20px);
+          @include respond-to(lg){
+            width: calc(33.3% - 20px);
+          }
           @include respond-to(lg-1200){
-            width: 50%;
-            margin: 0;
+            width: calc(50% - 20px);
           }
           @include respond-to(md){
             width: 100%;

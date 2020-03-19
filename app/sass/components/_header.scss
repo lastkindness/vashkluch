@@ -81,21 +81,25 @@
     }
   }
   &__user {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
     .icon {
-      font-size: 25px;
-      line-height: 25px;
+      font-size: 35px;
+      line-height: 35px;
       color: $elements;
     }
   }
   &__cart {
-    display: flex;
     align-items: center;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: flex-start;
     position: relative;
     text-decoration: none;
     .icon {
-      font-size: 25px;
-      line-height: 25px;
+      font-size: 35px;
+      line-height: 35px;
       color: $elements;
     }
     .text {
@@ -106,8 +110,8 @@
       }
     }
     .value {
-      width: 17px;
-      height: 17px;
+      width: 23px;
+      height: 23px;
       background-color: $elements;
       color: $white;
       font-size: 14px;
@@ -116,8 +120,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      top: 0px;
-      left: -5px;
+      top: -3px;
+      left: -8px;
     }
     &:hover,
     &:active,
@@ -178,6 +182,17 @@
     }
   }
   &__lang {
+    .dropdown {
+      &__img {
+        width: 25px;
+        margin-left: 10px;
+      }
+      &__item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
     @include respond-to(xs-690){
       padding-left: 15px;
     }
@@ -207,13 +222,14 @@
     width: 7%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     @include respond-to(md){
       width: 10%;
     }
     @include respond-to(xs-690){
       width: auto;
       order: 0;
+      justify-content: space-between;
     }
     .social {
       &-item {
@@ -229,6 +245,9 @@
             @include anim;
           }
         }
+      }
+      &-list {
+        justify-content: flex-end;
       }
     }
   }
@@ -584,7 +603,7 @@
       justify-content: center;
       &-wrapper {
         background-color: $grayBG;
-        padding: 10px 0;
+        //padding: 10px 0;
         @include respond-to(xs-690){
           border-top: 1px solid $accent;
           border-bottom: 1px solid $accent;
@@ -606,9 +625,8 @@
     }
     &-item {
       margin: 0 30px !important;
-      @include respond-to(xs-690){
-        padding: 10px 0;
-      }
+      padding: 10px 0;
+      text-align: center;
       &.active {
         a,
         span,

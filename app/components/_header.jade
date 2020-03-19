@@ -8,10 +8,11 @@ header.header
                 .header__main-location
                     .header__currency
                         - var text = ["₴ грн.", "$ долл."];
-                        +dropdown("dropdown_native", text, "", "header-currency")
+                        +dropdown("dropdown_native", text, "", "header-currency", "")
                     .header__lang
                         - var text = ["RU", "UA"];
-                        +dropdown("dropdown_native", text, "", "header-lang")
+                        - var icon = ["rus.jpg", "ua.jpg"];
+                        +dropdown("dropdown_image", text, "", "header-lang", icon)
                 .header__phone
                     a(href="tel:+380487001717" class="header__phone-link")
                         .icon.icon-phone
@@ -45,10 +46,12 @@ header.header
                         .icon.icon-search
                     a(href="http://html.myapp.com.ua/vashkluch/registration.html").header__user
                         .icon.icon-user.label-link
+                        | Login
                     .line
                     a(href="http://html.myapp.com.ua/vashkluch/cart.html").header__cart.active
                         .icon.icon-cart.label-link
                             .value 1
+                        | Cart
                     .header__burger
                         .burger
                             span
