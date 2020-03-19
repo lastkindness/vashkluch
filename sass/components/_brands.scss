@@ -57,7 +57,7 @@
     justify-content: flex-start;
     color: $text;
     img {
-      opacity: 0.8;
+      transform: scale(1);
       @include anim;
       max-height: 100%;
       width: 100%;
@@ -67,7 +67,7 @@
     &:active,
     &:focus {
       img {
-        opacity: 1;
+        transform: scale(0.9);
         @include anim;
       }
     }

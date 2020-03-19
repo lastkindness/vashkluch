@@ -1,8 +1,5 @@
 .search {
   &-empty-page {
-    .catalog__grid-wrapper {
-      width: 100%;
-    }
     .catalog__grid {
       display: block;
     }
@@ -13,6 +10,12 @@
       }
       .title {
         margin-top: 0;
+      }
+    }
+    &-page {
+      .catalog__grid,
+      .catalog__grid-wrapper {
+        width: 100%;
       }
     }
   }

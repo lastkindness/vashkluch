@@ -12,6 +12,7 @@ $icon_font_name:"Icons";
 %icon-arr2,
 %icon-car,
 %icon-cart,
+%icon-cart2,
 %icon-check,
 %icon-close,
 %icon-doc,
@@ -84,51 +85,54 @@ $icon_font_name:"Icons";
 %icon-cart:before {
 	content:'\E005';
 }
-%icon-check:before {
+%icon-cart2:before {
 	content:'\E006';
 }
-%icon-close:before {
+%icon-check:before {
 	content:'\E007';
 }
-%icon-doc:before {
+%icon-close:before {
 	content:'\E008';
 }
-%icon-fb:before {
+%icon-doc:before {
 	content:'\E009';
 }
-%icon-gift:before {
+%icon-fb:before {
 	content:'\E00A';
 }
-%icon-google-plus:before {
+%icon-gift:before {
 	content:'\E00B';
 }
-%icon-insta:before {
+%icon-google-plus:before {
 	content:'\E00C';
 }
-%icon-link:before {
+%icon-insta:before {
 	content:'\E00D';
 }
-%icon-mail:before {
+%icon-link:before {
 	content:'\E00E';
 }
-%icon-map:before {
+%icon-mail:before {
 	content:'\E00F';
 }
-%icon-phone:before {
+%icon-map:before {
 	content:'\E010';
 }
-%icon-pint:before {
+%icon-phone:before {
 	content:'\E011';
 }
-%icon-search:before {
+%icon-pint:before {
 	content:'\E012';
 }
-%icon-tweet:before {
+%icon-search:before {
 	content:'\E013';
 }
-%icon-user:before {
+%icon-tweet:before {
 	content:'\E014';
 }
-%icon-vk:before {
+%icon-user:before {
 	content:'\E015';
+}
+%icon-vk:before {
+	content:'\E016';
 }

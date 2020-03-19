@@ -6,6 +6,7 @@
     justify-content: space-between;
     position: relative;
     overflow: hidden;
+    flex-wrap: wrap;
     @include respond-to(md) {
       flex-wrap: wrap;
     }
@@ -23,6 +24,7 @@
     &__characteristic {
       flex-grow: 1;
       width: 100%;
+
     }
     &__descr {
       width: 100%;
@@ -53,7 +55,7 @@
       }
     }
     &__wrapper {
-      width: 33.3%;
+      width: 66.7%;
       padding: 50px 30px;
       display: flex;
       flex-direction: column;
@@ -91,13 +93,11 @@
       }
     }
     &__sidebar {
-      width: 33.3%;
+      width: 100%;
       background-color: $white;
-      border-left: 1px solid $elements;
-      padding: 50px 30px 35px;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       justify-content: space-between;
       @include respond-to(md){
         width: 50%;
@@ -130,7 +130,7 @@
       }
       &-item {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: flex-start;
         flex-direction: column;
         font-size: 12px;
@@ -249,7 +249,6 @@
     &__stock {
       width: 100%;
       text-align: center;
-      margin-bottom: 30px;
       @include respond-to(md){
         margin-bottom: 10px;
       }
@@ -275,7 +274,7 @@
       width: 100%;
       display: flex;
       align-items: stretch;
-      justify-content: center;
+      justify-content: flex-start;
       margin-bottom: 20px;
       .input-number,
       button {
@@ -352,7 +351,7 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      justify-content: center;
+      justify-content: flex-start;
       .title,
       span {
         font-size: 24px;
@@ -364,6 +363,8 @@
         @include fb;
         margin: 0 5px;
         color: $elements;
+        font-size: 20px;
+        line-height: 20px;
       }
       .input-number {
         height: 40px;
@@ -375,7 +376,7 @@
       .card-info-value {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         width: 100%;
       }
     }

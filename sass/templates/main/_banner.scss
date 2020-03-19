@@ -1,20 +1,23 @@
 .main {
   &-banner {
+    order: 0;
     &__img {
-      height: 300px;
+      height: 415px;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      @include respond-to(lg){
-        height: 250px;
-      }
+      //@include respond-to(lg){
+      //  height: 250px;
+      //}
       @include respond-to(xs-690){
         height: 130px;
       }
       img {
-        width: 100%;
-        max-width: 100%;
+        min-height: 100%;
+        min-width: 100%;
+        object-fit: cover;
+        background-position: 50% 50%;
       }
     }
   }
