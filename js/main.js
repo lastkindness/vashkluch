@@ -1939,6 +1939,35 @@
     }
     /*----------------- Форматирование цены ------------------*///
 
+
+    /*----------------- Поиск вывод результатов дропдаун ------------------*///
+    $('input[name="q"]').on('propertychange input', function(e) {
+        var valueChanged = false;
+
+        if (e.type=='propertychange') {
+            valueChanged = e.originalEvent.propertyName=='value';
+        } else {
+            valueChanged = true;
+        }
+        if (valueChanged) {
+            /* Code goes here */
+            var query = $(this).val();
+            $.ajax({
+                url: '/partial_search?q='+query,
+                success: function(data){
+                    if(data) {
+                        $('.search__suggestions-container').addClass('search__suggestions-container-open');
+                        $('.search__suggestions-container').html(data);
+                    } else {
+                        $('.search__suggestions-container').removeClass('search__suggestions-container-open');
+                    }
+
+                }
+            })
+        }
+    });
+    /*----------------- Поиск вывод результатов дропдаун ------------------*///
+
     $(document).ready(function() {
         if ($('.preloader').length) {
             setTimeout(function () {
