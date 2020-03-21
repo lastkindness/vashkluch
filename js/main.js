@@ -133,6 +133,41 @@
     //     }
     // });
 
+    // elevateZoom start
+
+    $(document).ready(function() {
+
+        function elevateZoom () {
+            if ($(window).width() > 1030) {
+                $($('.gallery-images .slick-active img')[0]).elevateZoom({
+                    zoomType: "window",
+                    scrollZoom: "true",
+                    cursor: "crosshair",
+                    zoomLevel: 0.3,
+                    zoomWindowHeight:500,
+                    zoomWindowWidth:500
+                });
+            }
+        }
+
+        if($('.card__image_loupe').length) {
+            elevateZoom ();
+            $('.card__image_slider-small-slide').on('click', function(event){
+                event.preventDefault();
+                $('.gallery-images .slick-active img').removeData('elevateZoom');
+                $('.zoomContainer').remove();
+                elevateZoom ();
+            });
+
+            $('.card__image_loupe .slick-arrow').on('click', function(event){
+                event.preventDefault();
+                $('.gallery-images .slick-active img').removeData('elevateZoom');
+                $('.zoomContainer').remove();
+                elevateZoom ();
+            });
+        } });
+    // elevateZoom end
+
     $(document).ready(function(){
         setTimeout(function(){
             window.scrollTo(0, 0);
@@ -167,19 +202,6 @@
         });
     });
     /*Function for link scroll*/
-
-    function elevateZoom () {
-        if ($(window).width() > 1030) {
-            $($('.gallery-images .slick-active img')[0]).elevateZoom({
-                zoomType: "window",
-                scrollZoom: "true",
-                cursor: "crosshair",
-                zoomLevel: 0.5,
-                zoomWindowHeight:650,
-                zoomWindowWidth:650
-            });
-        }
-    }
 
     /*Function for same height*/
     function heightBlock() {
@@ -1900,27 +1922,6 @@
 
     }
     /*---------------- Генератор URL фильтра -----------------*/
-
-    // elevateZoom start
-    $(document).ready(function() {
-
-    if($('.card__image_loupe').length) {
-        elevateZoom ();
-        $('.card__image_slider-small-slide').on('click', function(event){
-            event.preventDefault();
-            $('.gallery-images .slick-active img').removeData('elevateZoom');
-            $('.zoomContainer').remove();
-            elevateZoom ();
-        });
-
-        $('.card__image_loupe .slick-arrow').on('click', function(event){
-            event.preventDefault();
-            $('.gallery-images .slick-active img').removeData('elevateZoom');
-            $('.zoomContainer').remove();
-            elevateZoom ();
-        });
-    } });
-    // elevateZoom end
 
 
     /*----------------- Форматирование цены ------------------*///
