@@ -151,7 +151,8 @@
         }
 
         if($('.card__image_loupe').length) {
-            elevateZoom ();
+            $('.zoomContainer').remove();
+            elevateZoom();
             $('.card__image_slider-small-slide').on('click', function(event){
                 event.preventDefault();
                 $('.gallery-images .slick-active img').removeData('elevateZoom');
@@ -171,7 +172,8 @@
     $(document).ready(function(){
         setTimeout(function(){
             window.scrollTo(0, 0);
-        }, 1);
+            console.log('scrollTo');
+        }, 10);
     });
     $(window).scroll(function () {
         var top = $(document).scrollTop();
@@ -1308,6 +1310,7 @@
         $('.header__phone-dropdown').slideUp();
         $('.js__dropdown').removeClass("active");
         $('.js__phone-dropdown').removeClass("active");
+        $('.search__suggestions-container-open').addClass("search__suggestions-container").removeClass("search__suggestions-container-open");
     });
     //body onclick end
 

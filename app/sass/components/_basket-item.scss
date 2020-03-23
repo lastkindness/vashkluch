@@ -26,6 +26,14 @@
   @include respond-to(xs-380) {
     padding: 10px 0;
   }
+  &:last-child {
+    border-bottom: unset;
+    &:hover,
+    &:focus,
+    &:active {
+      border-bottom: unset;
+    }
+  }
   &:hover,
   &:focus,
   &:active {
@@ -56,6 +64,9 @@
     @include respond-to(tablet-1030){
       padding: 5px;
     }
+    @include respond-to(lg){
+      padding: 15px 0;
+    }
     .basket-item__wrapper {
       justify-content: flex-start;
     }
@@ -76,10 +87,17 @@
       width: calc(100% - 80px);
       flex-grow: 0;
       margin-right: 0;
+      @include respond-to(lg){
+        width: calc(100% - 65px);
+        margin-left: 10px;
+      }
     }
     .basket-item__img {
       flex-grow: 1;
       width: 65px;
+      @include respond-to(lg){
+        width: 55px;
+      }
     }
     &-card {
       .basket-item__wrapper {
@@ -90,6 +108,9 @@
         width: 100%;
         padding-left: 80px;
         background-color: transparent;
+        @include respond-to(lg){
+          padding-left: 55px;
+        }
       }
       .basket-item__vendor-code,
       .basket-item__category {
@@ -168,6 +189,10 @@
       line-height: 16px;
       text-align: center;
       color: $textAccent;
+      @include respond-to(lg) {
+        font-size: 12px;
+        line-height: 14px;
+      }
     }
   }
   &__category {

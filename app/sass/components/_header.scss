@@ -85,10 +85,16 @@
     align-items: center;
     flex-direction: column;
     justify-content: flex-start;
+    text-align: center;
     .icon {
       font-size: 35px;
       line-height: 35px;
       color: $elements;
+      width: 100%;
+      @include respond-to(xs-600){
+        font-size: 25px;
+        line-height: 25px;
+      }
     }
   }
   &__cart {
@@ -97,10 +103,16 @@
     justify-content: flex-start;
     position: relative;
     text-decoration: none;
+    text-align: center;
     .icon {
       font-size: 35px;
       line-height: 35px;
       color: $elements;
+      width: 100%;
+      @include respond-to(xs-600){
+        font-size: 25px;
+        line-height: 25px;
+      }
     }
     .text {
       color: $white;
@@ -601,6 +613,7 @@
     &-list {
       width: 100%;
       justify-content: center;
+      align-items: stretch;
       &-wrapper {
         background-color: $grayBG;
         //padding: 10px 0;
