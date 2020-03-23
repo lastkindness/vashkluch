@@ -30,7 +30,8 @@
     border: 1px solid $grayBG;
     @include respond-to(tablet-1030){
       position: static;
-      width: 50%;
+      width: 100%;
+      height: auto;
     }
     @include respond-to(xs){
       width: 100%;
@@ -55,6 +56,9 @@
       color: $textLight;
       background-color: transparentize($action, 0.9);
       margin-bottom: 20px;
+      @include respond-to(lg){
+        padding: 5px;
+      }
     }
   }
   &.additional {
@@ -125,7 +129,8 @@
       box-shadow: 0 0 40px #aaa;
     }
     @include respond-to(tablet-1030){
-      width: 50%;
+      width: 100%;
+      height: auto;
     }
     @include respond-to(xs){
       width: 100%;
@@ -234,10 +239,13 @@
     justify-content: center;
     margin: 5px 0 !important;
     @include fm;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 18px;
     color: $text;
     text-transform: uppercase;
+    @include respond-to(lg) {
+      height: 50px;
+    }
     @include respond-to(xs-690) {
       height: auto;
     }
@@ -255,8 +263,8 @@
   }
   &__price {
     width: 100%;
-    font-size: 25px;
-    line-height: 29px;
+    font-size: 22px;
+    line-height: 25px;
     text-align: center;
     margin: 5px auto 0;
     display: flex;
@@ -273,8 +281,8 @@
       .title,
       .price,
       .currency {
-        font-size: 15px;
-        line-height: 19px;
+        font-size: 12px;
+        line-height: 14px;
         margin: 0;
         @include fr;
         color: $lines;
@@ -425,8 +433,8 @@
       .subtitle {
         margin: 0 auto;
         color: $lines;
-        font-size: 15px;
-        line-height: 19px;
+        font-size: 13px;
+        line-height: 15px;
         text-align: center;
         @include fr;
         position: relative;
@@ -551,6 +559,16 @@
   }
   .btn {
     padding: 15px 10px;
+    @include respond-to(lg) {
+      padding: 15px 5px;
+      font-size: 10px;
+      line-height: 12px;
+    }
+    &:before {
+      @include respond-to(lg-1250) {
+        font-size: 12px;
+      }
+    }
   }
   .input-number {
     height: auto;

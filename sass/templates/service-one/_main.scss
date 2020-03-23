@@ -45,6 +45,9 @@
         width: 60px !important;
         margin-right: 20px;
         max-width: unset;
+        height: 60px;
+        object-fit: contain;
+        object-position: 50% 50%;
       }
       .title {
         @include fm;
