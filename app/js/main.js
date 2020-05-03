@@ -132,49 +132,9 @@
     //         return false;
     //     }
     // });
-
-    // elevateZoom start
-
-    $(document).ready(function() {
-
-        function elevateZoom () {
-            if ($(window).width() > 1030) {
-                $($('.gallery-images .slick-active img')[0]).elevateZoom({
-                    zoomType: "window",
-                    scrollZoom: "true",
-                    cursor: "crosshair",
-                    zoomLevel: 0.3,
-                    zoomWindowHeight:500,
-                    zoomWindowWidth:500
-                });
-            }
-        }
-
-        if($('.card__image_loupe').length) {
-            $('.zoomContainer').remove();
-            elevateZoom();
-            $('.card__image_slider-small-slide').on('click', function(event){
-                event.preventDefault();
-                $('.gallery-images .slick-active img').removeData('elevateZoom');
-                $('.zoomContainer').remove();
-                elevateZoom ();
-            });
-
-            $('.card__image_loupe .slick-arrow').on('click', function(event){
-                event.preventDefault();
-                $('.gallery-images .slick-active img').removeData('elevateZoom');
-                $('.zoomContainer').remove();
-                elevateZoom ();
-            });
-        } });
-    // elevateZoom end
-
-    $(document).ready(function(){
-        setTimeout(function(){
-            window.scrollTo(0, 0);
-            console.log('scrollTo');
-        }, 10);
-    });
+    setTimeout(function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 1500);
     $(window).scroll(function () {
         var top = $(document).scrollTop();
         if (top < 100) {
@@ -788,6 +748,13 @@
     }
     $('.header__menu-list-sub').closest('.header__menu-item-sub').addClass('drop');
     $('.header__menu-list-sub').closest('.header__menu-item-main').addClass('drop-main');
+    if($('.header__menu-catalog').length) {
+        $('.header__menu-catalog>.header__menu-list-sub').css('left', '-' + $('.header__menu-catalog').offset().left + 'px');
+
+        $(window).on('resize', function () {
+            $('.header__menu-catalog>.header__menu-list-sub').css('left', '-' + $('.header__menu-catalog').offset().left + 'px');
+        });
+    }
 
     if ($(window).width() <= 1030) {
         $('.header').addClass('mobile');
@@ -1264,41 +1231,75 @@
     }
     /*card__info-image end*/
 
+    // elevateZoom start
+    setTimeout(function() {
+        function elevateZoom () {
+            if ($(window).width() > 1030) {
+                $($('.gallery-images .slick-active img')[0]).elevateZoom({
+                    zoomType: "window",
+                    scrollZoom: "true",
+                    cursor: "crosshair",
+                    zoomLevel: 0.3,
+                    zoomWindowHeight:500,
+                    zoomWindowWidth:500
+                });
+            }
+        }
+        if($('.card__image_loupe').length) {
+            $('.zoomContainer').remove();
+            elevateZoom();
+            $('.card__image_slider-small-slide').on('click', function(event){
+                event.preventDefault();
+                $('.gallery-images .slick-active img').removeData('elevateZoom');
+                $('.zoomContainer').remove();
+                elevateZoom ();
+            });
+
+            $('.card__image_loupe .slick-arrow').on('click', function(event){
+                event.preventDefault();
+                $('.gallery-images .slick-active img').removeData('elevateZoom');
+                $('.zoomContainer').remove();
+                elevateZoom ();
+            });
+        }
+    }, 1000);
+    // elevateZoom end
+
     /*slick end*/
 
-    if ($("#sort-city").length) {
-        $("#sort-city").select2({
+    if ($(".sort-city").length) {
+        $(".sort-city").select2({
         });
     }
-    if ($("#sort-np").length) {
-        $("#sort-np").select2({
+    if ($(".sort-np").length) {
+        $(".sort-np").select2({
         });
     }
-    if ($("#sort-city-courier").length) {
-        $("#sort-city-courier").select2({
+    if ($(".sort-city-courier").length) {
+        $(".sort-city-courier").select2({
         });
     }
-    if ($("#sort-value").length) {
-        $("#sort-value").select2({
+    if ($(".sort-value").length) {
+        $(".sort-value").select2({
             minimumResultsForSearch: -1
         });
     }
-    if ($("#sort-quantity").length) {
-        $("#sort-quantity").select2({
+    if ($(".sort-quantity").length) {
+        $(".sort-quantity").select2({
             minimumResultsForSearch: -1
         });
     }
-    if ($("#sort-town").length) {
-        $("#sort-town").select2({
+    if ($(".sort-town").length) {
+        $(".sort-town").select2({
             minimumResultsForSearch: -1
         });
     }
-    if ($("#sort-region").length) {
-        $("#sort-region").select2({
+    if ($(".sort-region").length) {
+        $(".sort-region").select2({
         });
     }
-    if ($("#sort-country").length) {
-        $("#sort-country").select2({
+    if ($(".sort-country").length) {
+        $(".sort-country").select2({
         });
     }
 

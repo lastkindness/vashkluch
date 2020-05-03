@@ -1,12 +1,13 @@
 //card-info main start
   .card-info {
-    border: 1px solid $elements;
+    border: 1px solid $grayBG4;
     display: flex;
     align-items: stretch;
     justify-content: space-between;
     position: relative;
     overflow: hidden;
     flex-wrap: wrap;
+    border-radius: 10px;
     @include respond-to(md) {
       flex-wrap: wrap;
     }
@@ -23,8 +24,11 @@
     }
     &__characteristic {
       flex-grow: 1;
-      width: 100%;
-
+      width: 60%;
+      border: 1px solid $grayBG4;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0 auto;
     }
     &__descr {
       width: 100%;
@@ -219,7 +223,8 @@
           font-size: 14px;
           line-height: 16px;
           text-decoration: line-through;
-          color: $lines;
+          //color: $lines;
+          color: $elements;
         }
         .price {
           margin: 0 5px;

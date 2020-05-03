@@ -7,10 +7,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      //@include respond-to(lg){
-      //  height: 250px;
-      //}
+      @include respond-to(sm){
+        height: 350px;
+      }
       @include respond-to(xs-690){
+        height: 200px;
+      }
+      @include respond-to(xs-380){
         height: 130px;
       }
       img {

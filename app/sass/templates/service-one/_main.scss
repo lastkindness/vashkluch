@@ -22,6 +22,20 @@
       flex-wrap: wrap;
     }
   }
+  &__content {
+    img {
+      width: 50%;
+      float: left;
+      margin-right: 20px;
+      margin-bottom: 20px;
+      @include respond-to(sm) {
+        width: 100%;
+        float: left;
+        margin-right: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
   &__advantages {
     width: calc(65% - 30px);
     margin: 0;
@@ -71,6 +85,7 @@
     }
   }
   &__phone {
+    width: 100%;
     display: flex;
     align-items: stretch;
     justify-content: flex-start;

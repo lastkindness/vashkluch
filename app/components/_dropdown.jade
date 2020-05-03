@@ -29,7 +29,7 @@ mixin dropdown(classItem, text, tag, idItem, icon)
     -else if (classItem=="dropdown_select")
         .dropdown.dropdown_select
             .dropdown__wrapper
-                select.select.icon.icon-normal_arr(id=idItem)
+                select.select.icon.icon-normal_arr(class=idItem)
                     - for (var i = 0; i < text.length; i++)
                         option= text[i]
     -else if (classItem=="dropdown_select_first")

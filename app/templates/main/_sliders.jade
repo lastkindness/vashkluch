@@ -1,0 +1,53 @@
+include ../../components/_product-item
+include ../../components/_button
+section.catalog
+    .main-page__title
+        span Акции
+        +button('Больше товаров', 'a')(href="/promotion" class="btn-link")
+    .main-products-item.small-products-item.catalog__grid
+        - var img = ["key8.jpeg", "key9.jpeg", "key8.jpeg", "key9.jpeg", "key10.jpeg", "key11.jpeg"]
+        - var itemTitle = ["PK RENAULT NE72 2кн", "CLA3G JMA", "PK MERCEDES BENZ 3КН ЧЕРНЫЙ ДО 1998Г С МЕХАНИЧЕСКИЙ КЛЮЧОМ", "PK RENAULT VAC102 3КН NO LOGO", "PK RENAULT NE72 2кн", "PK RENAULT NE72 2кн"]
+        - var price= ["142 402", "29 755", "45 794", "25 742", "25 742", "45"]
+        - var classItem= ["product-item_stock product-item_old product-item_small", "product-item_stock product-item_old product-item_small", "product-item_stock product-item_old product-item_small", "product-item_stock product-item_old product-item_small", "product-item_stock product-item_old product-item_small", "product-item_stock product-item_old product-item_small"]
+        - var priceOld= ["146 502", "31 785", "47 782", "26 712", "26 712", "26 712"]
+        - var vendor= ["45881257","557780","7x757","ВШГ202","7x757","ВШГ202"]
+        - var label= ["Акция", "Акция", "Акция", "Акция", "Акция", "Акция"]
+        - var classLabel= ["label-status_sale", "label-status_sale", "label-status_sale", "label-status_sale", "label-status_sale", "label-status_sale"]
+        - var btnClass= ["", "", "", "", "", ""]
+        - for (var i = 0; i < img.length; i++)
+            +product-item(img, itemTitle, price, priceOld, classItem, vendor, label, classLabel, btnClass)
+
+section.catalog
+    .main-page__title
+        span Топ продаж
+        +button('Больше товаров', 'a')(href="/top" class="btn-link")
+    .main-products-item.small-products-item.catalog__grid
+        - var img = ["key8.jpeg", "key9.jpeg", "key8.jpeg", "key9.jpeg", "key10.jpeg", "key11.jpeg"]
+        - var itemTitle = ["PK RENAULT NE72 2кн", "CLA3G JMA", "PK MERCEDES BENZ 3КН ЧЕРНЫЙ ДО 1998Г С МЕХАНИЧЕСКИЙ КЛЮЧОМ", "PK RENAULT VAC102 3КН NO LOGO", "PK RENAULT NE72 2кн", "PK RENAULT NE72 2кн"]
+        - var price= ["142 402", "29 755", "45 794", "25 742", "25 742", "45"]
+        - var classItem= ["product-item_stock product-item_old product-item_small", "product-item_small", "product-item_small", "product-item_small", "product-item_small", "product-item_small"]
+        - var priceOld= ["146 502", "31 785", "47 782", "26 712", "26 712", "26 712"]
+        - var vendor= ["45881257","557780","7x757","ВШГ202","7x757","ВШГ202"]
+        - var label= ["Топ", "Топ", "Топ", "Топ", "Топ", "Топ"]
+        - var classLabel= ["label-status_top", "label-status_top", "label-status_top", "label-status_top", "label-status_top", "label-status_top"]
+        - var btnClass= ["", "", "", "", "", ""]
+        - for (var i = 0; i < img.length; i++)
+            +product-item(img, itemTitle, price, priceOld, classItem, vendor, label, classLabel, btnClass)
+
+section.catalog
+    .main-page__title
+        span Новинки
+        +button('Больше товаров', 'a')(href="/new_products" class="btn-link")
+    .main-products-item.small-products-item.catalog__grid
+        - var img = ["key8.jpeg", "key9.jpeg", "key8.jpeg", "key9.jpeg", "key10.jpeg", "key11.jpeg"]
+        - var itemTitle = ["PK RENAULT NE72 2кн", "CLA3G JMA", "PK MERCEDES BENZ 3КН ЧЕРНЫЙ ДО 1998Г С МЕХАНИЧЕСКИЙ КЛЮЧОМ", "PK RENAULT VAC102 3КН NO LOGO", "PK RENAULT NE72 2кн", "PK RENAULT NE72 2кн"]
+        - var price= ["142 402", "29 755", "45 794", "25 742", "25 742", "45"]
+        - var classItem= ["product-item_small", "product-item_small", "product-item_small", "product-item_small", "product-item_small", "product-item_small"]
+        - var priceOld= ["146 502", "31 785", "47 782", "26 712", "26 712", "26 712"]
+        - var vendor= ["45881257","557780","7x757","ВШГ202","7x757","ВШГ202"]
+        - var label= ["Новинка", "Новинка", "Новинка", "Новинка", "Новинка", "Новинка"]
+        - var classLabel= ["label-status_new", "label-status_new", "label-status_new", "label-status_new", "label-status_new", "label-status_new"]
+        - var btnClass= ["", "", "", "", "", ""]
+        - for (var i = 0; i < img.length; i++)
+            +product-item(img, itemTitle, price, priceOld, classItem, vendor, label, classLabel, btnClass)
+
